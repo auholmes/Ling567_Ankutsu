@@ -1,6 +1,6 @@
 Language: Ankutsu
 Language code: aqz
-Lines: orth-seg gloss translat
+Lines: translit-seg gloss translat
 Author: Audrey Holmes and Aycha Edwards
 Date: January 14, 2018
 Source a: Dissertation: Aragon 2014
@@ -10,10 +10,14 @@ Source a: Dissertation: Aragon 2014
 ############################################################
 
 # Word Order Example 1
-# Source:
-# Vetted:
-# Judgment:
-# Phenomena: word order
+# obj verb subj
+Source: a:198
+Vetted:
+Judgment: g
+Phenomena: word order
+kɨbapi	poka	on
+bush	burn	1s
+I burned the bush.
 
 ############################################################
 # Pronoun Examples
