@@ -1,0 +1,12 @@
+Language: Ankutsu
+Language code: aqz
+Lines: orth-seg gloss translat
+Author: Audrey Holmes and Aycha Edwards
+Date: January 14, 2018
+Source a: Dissertation: Aragon 2014
+
+############################################################
+# Word Order Examples
+############################################################
+
+# Word Order Example 1
