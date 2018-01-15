@@ -110,20 +110,63 @@ I see you
 ############################################################
 
 # Case Example 1
-# Source:
-# Vetted:
-# Judgment:
-# Phenomena: case
+Source: a:155
+Vetted: s
+Judgment: g
+Phenomena: case
+ek 	etʃe i=maã
+house 	DIFF 3s=store/wear
+store it in the house
+
+# Case Example 2
+Source: a:156
+Vetted: s
+Judgment: g
+Phenomena: case
+apaɾapia 	t-et 	ete?
+non.Indian 	R-name 	REL
+what about the non-Indian's name?
+
+# Case Example 3
+Source: a:156
+Vetted: s
+Judgment: g
+Phenomena: case
+en baj 		ete
+2s buriti 	REL
+you are with the buriti
+
+# Case Example 4
+# ablative
+Source: a:160
+Vetted: s
+Judgment: g
+Phenomena: case
+awtʃe=ɾi 	mi-a 		kɨjtpit nom
+peccary=ABL 	kill-THV 	fish 	no
+it's to kill the peccary, not fish
 
 ############################################################
 # NP Examples
 ############################################################
 
 # NP Example 1
-# Source:
-# Vetted:
-# Judgment:
-# Phenomena: 
+Source: a:163
+Vetted: s
+Judgment: g
+Phenomena: cogst
+akop 	te 	e=t-ek-et
+hot 	FOC 	2s-R-house-DET
+your house is hot
+
+# NP Example 2
+Source: a:163
+Vetted: s
+Judgment: g
+Phenomena: cogst
+apaɾapia-t 	kwamoa o=ɨɾɨ-ka
+non.Indian-DET 	shaman 1s=heal-TR
+the doctor healed me
 
 ############################################################
 # Tense / Aspect
