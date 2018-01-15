@@ -12,12 +12,22 @@ Source a: Dissertation: Aragon 2014
 # Word Order Example 1
 # obj verb subj
 Source: a:198
-Vetted:
+Vetted: s
 Judgment: g
 Phenomena: word order
 kɨbapi	poka	on
 bush	burn	1s
 I burned the bush.
+
+# Word Order Example 2
+# subj obj verb
+Source: a:202
+Vetted: s
+Judgment: g
+Phenomena: word order
+tawtʃe	i=tʃoga
+peccary 3s=bite
+The peccary bit her.
 
 ############################################################
 # Pronoun Examples
