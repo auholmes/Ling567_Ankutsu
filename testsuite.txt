@@ -17,7 +17,7 @@ Judgment: g
 Phenomena: word order
 kɨbapi	poka	on
 bush	burn	1s
-I burned the bush.
+I burned the bush
 
 # Word Order Example 2
 # subj obj verb
@@ -27,17 +27,83 @@ Judgment: g
 Phenomena: word order
 tawtʃe	i=tʃoga
 peccary 3s=bite
-The peccary bit her.
+the peccary bit her
 
 ############################################################
 # Pronoun Examples
 ############################################################
 
 # Prounoun Example 1
-# Source:
-# Judgment:
-# Vetted: 
-# Phenomena: pronouns
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+on i=mi-a
+1s 3s=kill-THV
+I killed it
+
+# Pronoun Example 2
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+en i=at-a 	ka
+2s 3s=get-THV 	go
+you (go and) get it
+
+# Pronoun Example 3
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+te kit 	ko
+3S seed ingest
+he ate the seed
+
+# Pronoun Example 4
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+kitʃe 		kɨp 	boja
+1PL.INCL 	wood 	cut
+we cut the wood
+
+# Pronoun Example 5
+Source: a:183
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+oɾẽ 	o=eɾek-kwa
+1S.EM 	1s=speech-TR.PL
+I speak
+
+# Pronoun Example 7
+Source: a:183
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+kiɾẽ=bõ 	ki=peɾa
+1PL.INC.EM=DAT 	1PL.INCL=wake.up
+we woke up
+
+# Pronoun Example 8
+Source: a:201
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+en o=tʃop-a
+2s 1s=see-THV
+you see me
+
+# Pronoun Example 9
+Source: a:201
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+on e=tʃop-a
+1s 2s=see-THV
+I see you
 
 ############################################################
 # Case Examples
