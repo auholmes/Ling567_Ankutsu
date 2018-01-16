@@ -1,0 +1,85 @@
+
+version=28
+
+section=general
+language=Akuntsu
+iso-code=aqz
+punctuation-chars=keep-all
+archive=yes
+vcs=none
+
+section=word-order
+word-order=free
+has-dets=no
+has-aux=no
+
+section=number
+  number1_name=Singular
+  number2_name=Plural
+
+section=person
+person=1-2-3
+first-person=incl-excl
+incl-excl-number=Plural
+
+section=gender
+
+section=case
+case-marking=none
+
+section=direct-inverse
+scale-equal=direct
+
+section=tense-aspect-mood
+
+section=evidentials
+
+section=other-features
+
+section=sentential-negation
+
+section=coordination
+
+section=matrix-yes-no
+
+section=info-str
+
+section=arg-opt
+
+section=lexicon
+  noun3_name=Pronoun
+    noun3_feat1_name=pernum
+    noun3_feat1_value=Singular, 1st
+  noun3_det=imp
+    noun3_stem1_orth=on
+    noun3_stem1_pred=_on_pron_rel
+  noun4_name=Animlas
+    noun4_feat1_name=pernum
+    noun4_feat1_value=3rd
+  noun4_det=imp
+    noun4_stem1_orth=kopiba
+    noun4_stem1_pred=_kopiba_n_rel
+  noun5_name=Parts-of-a-whole
+    noun5_feat1_name=pernum
+    noun5_feat1_value=3rd
+  noun5_det=imp
+    noun5_stem1_orth=piɾi
+    noun5_stem1_pred=_piɾi_n_rel
+  verb1_name=Int
+  verb1_valence=intrans
+    verb1_stem1_orth=atʃo
+    verb1_stem1_pred=_atʃo_v_rel
+  verb2_name=Tr
+  verb2_valence=trans
+    verb2_stem1_orth=tʃop
+    verb2_stem1_pred=_tʃop_v_rel
+
+section=morphology
+
+section=toolbox-import
+
+section=test-sentences
+
+section=gen-options
+
+section=ToolboxLexicon

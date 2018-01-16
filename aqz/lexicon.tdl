@@ -1,0 +1,26 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; Nouns
+
+on := Pronoun-noun-lex &
+  [ STEM < "on" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_on_pron_rel" ].
+
+kopiba := Animlas-noun-lex &
+  [ STEM < "kopiba" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopiba_n_rel" ].
+
+piɾi := Parts-of-a-whole-noun-lex &
+  [ STEM < "piɾi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_piɾi_n_rel" ].
+
+;;; Adjectives
+
+;;; Verbs
+
+atʃo := Int-verb-lex &
+  [ STEM < "atʃo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_atʃo_v_rel" ].
+
+tʃop := Tr-verb-lex &
+  [ STEM < "tʃop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_tʃop_v_rel" ].
