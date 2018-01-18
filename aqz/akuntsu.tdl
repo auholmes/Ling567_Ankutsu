@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Mon Jan 15 20:31:14 UTC 2018
+;;;     Thu Jan 18 03:17:06 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Wed Dec 20 23:31:10 UTC 2017
 ;;;
@@ -28,35 +28,6 @@ basic-head-mod-phrase-simple :+ [ SYNSEM.LOCAL.CAT.MC #mc,
 
 basic-head-opt-subj-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 
-; We can't just use the V-final and V-initial word
-; order modules together to get a good free word order
-; module. The root of the problem seems to be that we
-; need the subject to be able to attach inside the
-; object(s) for VSO and OSV, but at the same time, we
-; don't want complete flexibility on order of attachment
-; when the verb is in the middle -- that would give
-; spurious ambiguity.  This solution adopts the xmod
-; hierarchy to enforce right-first attachment.  That is,
-; all arguments appears to the right of the verb must
-; attach before all arguments appearing to the left.  The
-; linguistic prediction of this analysis is that free
-; word order languages do not have a consistent VP
-; consituent, even when the verb and object are adjacent
-; (OV order).  Using a separate feature for tracking
-; argument attachment (as opposed to modifier
-; attachment).  We might be able to collapse these one
-; day, but that's not obvious.
-
-synsem :+ [ ATTACH xmod ].
-
-; We'll need to add identification of ATTACH between
-;     mother and head-daughter for all other kinds of phrases
-;     if we do this.  Just for illustration, I'm putting it
-;     in for head-adjunct phrases here:
-
-head-mod-phrase :+ [ SYNSEM.ATTACH #attach,
-    HEAD-DTR.SYNSEM.ATTACH #attach ].
-
 ;;;;;;;;;;;;;;
 ;;; Features
 ;;;;;;;;;;;;;;
@@ -64,7 +35,9 @@ head-mod-phrase :+ [ SYNSEM.ATTACH #attach,
 ;;; Pernum
 
 pernum := *top*.
+Singular := pernum.
 Plural := pernum.
+1st := pernum.
 2nd := pernum.
 3rd := pernum.
 1Singular := 1st & Singular.
@@ -75,9 +48,6 @@ Plural := pernum.
 1Plural_excl := 1Plural.
 2Plural := 2nd & Plural.
 3Plural := 3rd & Plural.
-Singular+1st := pernum.
-Singular := Singular+1st.
-1st := Singular+1st.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -94,14 +64,30 @@ noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-ite
                                  [ LOCAL.CAT.HEAD det,
                                    OPT + ] > ] ].
 
-Pronoun-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM Singular+1st ].
+common-noun-noun-lex := noun-lex.
 
-Animlas-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
+Proper-noun-noun-lex := noun-lex.
 
-Parts-of-a-whole-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ].
+pronoun1S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Singular ].
+
+pronoun2S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Singular ].
+
+pronoun3S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Singular ].
+
+pronoun1PLI-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_incl ].
+
+pronoun1PLE-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_excl ].
+
+pronoun2PL-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Plural ].
+
+pronoun3PL-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Plural ].
 
 ;;; Verbs
 
@@ -129,9 +115,9 @@ transitive-verb-lex := verb-lex & transitive-lex-item &
                                  COMPS < > ],
                            HEAD noun ] ] > ].
 
-Int-verb-lex := intransitive-verb-lex.
+intr-verb-verb-lex := intransitive-verb-lex.
 
-Tr-verb-lex := transitive-verb-lex.
+tr-verb-verb-lex := transitive-verb-lex.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Rules
@@ -146,24 +132,10 @@ Tr-verb-lex := transitive-verb-lex.
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
 
-head-initial-head-nexus := head-initial &
-  [ SYNSEM.ATTACH lmod,
-    HEAD-DTR.SYNSEM.ATTACH notmod-or-lmod ].
+comp-head-phrase := basic-head-1st-comp-phrase & head-final.
 
-head-final-head-nexus := head-final &
-  [ SYNSEM.ATTACH rmod ].
-
-head-subj-phrase := decl-head-subj-phrase & head-initial-head-nexus.
-
-subj-head-phrase := decl-head-subj-phrase & head-final-head-nexus.
-
-head-comp-phrase := basic-head-1st-comp-phrase & head-initial-head-nexus.
-
-comp-head-phrase := basic-head-1st-comp-phrase & head-final-head-nexus.
-
-head-comp-phrase-2 := basic-head-2nd-comp-phrase & head-initial-head-nexus.
-
-comp-head-phrase-2 := basic-head-2nd-comp-phrase & head-final-head-nexus.
+subj-head-phrase := decl-head-subj-phrase & head-final &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.
