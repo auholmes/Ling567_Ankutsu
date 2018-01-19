@@ -179,3 +179,5 @@ who seed eat
 Who ate the seed?
 
 WH-questions were not included in the starter grammar for this lab.
+
+The coverage for the test suite was 37.5% with no over-generation.
