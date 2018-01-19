@@ -1,0 +1,181 @@
+Ling 576 - Lab 2
+Audrey Holmes and Aycha Edwards
+Language: Akuntsu
+Write-up by Audrey Holmes
+
+Word order in Akuntsu is primarily SOV with some variation to OVS or VO(S). Here are some examples: 
+
+Examples 1 and 2 show a grammatical SOV sentence an an ungrammatical SVO sentence.
+
+# Word Order Example 1
+Source: a:198
+Vetted: s
+Judgment: g
+Phenomena: word order
+Tʃaɾuj  kɨjtpit	õ-a   
+Tʃaruj 	fish 	give-THV
+Tʃaruj 	gave 	fish
+
+# Word Order Example 2
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+Tʃaɾuj 	õ-a kɨjtpit  
+Tʃaruj 	give-THV fish
+Tʃaruj 	gave 	fish
+
+Example 8 shows a grammatical OVS sentence, which does not parse due to the constraints of the customization system.
+
+# Word Order Example 8
+Source: a:283
+Vetted: s
+Judgment: g
+Phenomena: word order
+ɨkɨ apeka poɾakɨ
+water drink curassow 
+Curassow is drinking water
+
+
+In the customization system, we chose SOV because it is the most common word order for the language and the customization system was not flexible enough to model special cases for OVS and VO(S). We will dig deeper into this in future labs.
+
+Akuntsu has seven independent pronouns: 1s, 2s, 3s, 1pl inclusive, 1pl exclusive, 2pl, and 3pl.
+
+Here are some examples:
+
+# Pronoun Example 5
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+otʃe et-a
+1PL.EXCL sleep-THV
+we sleep
+
+# Pronoun Example 7
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+kejat et-a
+3PL sleep-THV
+they sleep
+
+The lexical entries for each of these pronouns has a pernum feature that takes one of the following values: 1s, 2s, 2p, 3s, 3p, 1p-incl, 1p-excl.
+
+Akuntsu does not have case, gender, or determiners.
+
+Akuntsu has two tenses: future and non-future. Here are some examples:
+
+e Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tense
+on ko  kɨjtpit kom 
+1S fish inguest PROJ 
+I will eat fish
+
+# Tense Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tense
+on ko  kɨjtpit
+1S fish inguest 
+I eat fish
+
+e Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tense
+on ko kom kɨjtpit 
+1S fish PROJ inguest 
+I will eat fish
+
+The future tense is denoted by a projective marker (PROJ). 
+
+Tense was not included in the starter grammar for this lab.
+
+Akuntsu has several aspects including iterative, reduplication, and habitual. Here are some examples:
+
+# Aspect Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: aspect
+en boja-ɾa kɨp  
+2S cut-HAB wood
+you cut wood
+
+# Aspect Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: aspect
+en-ɾa boja kɨp  
+2S-HAB cut wood
+you cut wood
+
+# Aspect Example 4
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: aspect
+te et-a ekwa 
+3S sleep-THV ITER
+He sleeps continuously
+
+# Aspect Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: aspect
+te ekwa et-a 
+3S ITER sleep-THV
+He sleeps continuously
+
+# Aspect Example 6
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: aspect
+kejat ka-ka
+3PL	go-RED
+they go and go
+
+# Aspect Example 7
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: aspect
+kejat-ka ka
+3PL-RED	go
+they go and go
+
+The habitual and iterative aspects are marked by affixes. In reduplication, the verb or part of the verb is repeated.
+
+Aspect was not included in the starter grammar for this lab.
+
+Several types of WH-questions occur in Ankutsu. They include what, where, when, and who. The interrogative words occur at the beginning of the sentence.
+
+# Wh question Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question 
+taɾa te ko
+what 2S eat
+What did you eat?
+
+# Wh question Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question 
+aɾop kit ko
+who seed eat
+Who ate the seed?
+
+WH-questions were not included in the starter grammar for this lab.

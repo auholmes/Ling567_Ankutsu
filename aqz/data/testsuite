@@ -63,6 +63,24 @@ et-a tawtʃe
 sleep-THV peccary
 The peccary sleeps
 
+# Word Order Example 7
+Source: a:283
+Vetted: s
+Judgment: g
+Phenomena: word order
+poɾakɨ ɨkɨ apeka
+curassow water drink 
+Curassow is drinking water
+
+# Word Order Example 8
+Source: a:283
+Vetted: s
+Judgment: g
+Phenomena: word order
+ɨkɨ apeka poɾakɨ
+water drink curassow 
+Curassow is drinking water
+
 ############################################################
 # Pronoun Examples
 ############################################################
@@ -140,6 +158,7 @@ they sleep
 
 ############################################################
 # Tense / Aspect
+############################################################
 
 # Tense Example 1
 Source: author
@@ -258,11 +277,10 @@ kejat-ka ka
 3PL-RED	go
 they go and go
 
-
-############################################################
-
 ############################################################
 # WH-Questions
+############################################################
+
 # Wh question Example 1
 Source: author
 Judgment: g
@@ -277,7 +295,7 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: wh question 
-aɾop kit kowho seed eat
+aɾop kit ko
+who seed eat
 Who ate the seed?
-############################################################
 
