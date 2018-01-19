@@ -180,4 +180,19 @@ Who ate the seed?
 
 WH-questions were not included in the starter grammar for this lab.
 
-The coverage for the test suite was 37.5% with no over-generation.
+The coverage for the test suite was 33.3% with no over-generation.
+
+There were no sentences that parsed when they shouldn't have. However, there were several sentences that didn't parse when they should have. The most common reason for this was that the parser didn't recognize some of the words in the lexicon. For example, kɨjtpit. This is likely do to special characters in the word. We will look into this...
+
+The following example didn't parse because the word 'apeka' was missing from the lexicon. However, it also shouldn't have parsed because the phenomenon was not covered in the starter grammar! That is, it is OVS, an exception to the more typical SOV word order.
+
+# Word Order Example 8
+Source: a:283
+Vetted: s
+Judgment: g
+Phenomena: word order
+ɨkɨ apeka poɾakɨ
+water drink curassow
+Curassow is drinking water
+
+
