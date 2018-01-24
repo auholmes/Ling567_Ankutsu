@@ -1,0 +1,129 @@
+
+version=28
+
+section=general
+language=Akuntsu
+iso-code=aqz
+punctuation-chars=keep-all
+archive=yes
+vcs=none
+
+section=word-order
+word-order=sov
+has-dets=no
+has-aux=no
+
+section=number
+  number1_name=Singular
+  number2_name=Plural
+
+section=person
+person=1-2-3
+first-person=incl-excl
+incl-excl-number=Plural
+
+section=gender
+
+section=case
+case-marking=none
+
+section=direct-inverse
+scale-equal=direct
+
+section=tense-aspect-mood
+
+section=evidentials
+
+section=other-features
+
+section=sentential-negation
+
+section=coordination
+
+section=matrix-yes-no
+
+section=info-str
+
+section=arg-opt
+
+section=lexicon
+  noun1_name=common-noun
+  noun1_det=imp
+    noun1_stem1_orth=kɨjtpit
+    noun1_stem1_pred=_kɨjtpit_n_rel
+    noun1_stem2_orth=tawtʃe
+    noun1_stem2_pred=_tawtʃe_n_rel
+    noun1_stem3_orth=kɨp
+    noun1_stem3_pred=_kɨp_n_rel
+    noun1_stem4_orth=kit
+    noun1_stem4_pred=_kit_n_rel
+  noun2_name=Proper-noun
+  noun2_det=imp
+    noun2_stem1_orth=Tʃaɾuj
+    noun2_stem1_pred=_Tʃaɾuj_n_rel
+  noun3_name=pronoun1S
+    noun3_feat1_name=pernum
+    noun3_feat1_value=1Singular
+  noun3_det=imp
+    noun3_stem1_orth=on
+    noun3_stem1_pred=_on_n_rel
+  noun4_name=pronoun2S
+    noun4_feat1_name=pernum
+    noun4_feat1_value=2Singular
+  noun4_det=imp
+    noun4_stem1_orth=en
+    noun4_stem1_pred=_te_n_1_rel
+  noun5_name=pronoun3S
+    noun5_feat1_name=pernum
+    noun5_feat1_value=3Singular
+  noun5_det=imp
+    noun5_stem1_orth=te
+    noun5_stem1_pred=_te_n_2_rel
+  noun6_name=pronoun1PLI
+    noun6_feat1_name=pernum
+    noun6_feat1_value=1Plural_incl
+  noun6_det=imp
+    noun6_stem1_orth=kitʃe
+    noun6_stem1_pred=_kitʃe_n_rel
+  noun7_name=pronoun1PLE
+    noun7_feat1_name=pernum
+    noun7_feat1_value=1Plural_excl
+  noun7_det=imp
+    noun7_stem1_orth=otʃe
+    noun7_stem1_pred=_otʃe_n_rel
+  noun8_name=pronoun2PL
+    noun8_feat1_name=pernum
+    noun8_feat1_value=2Plural
+  noun8_det=imp
+    noun8_stem1_orth=iat
+    noun8_stem1_pred=_iat_n_rel
+  noun9_name=pronoun3PL
+    noun9_feat1_name=pernum
+    noun9_feat1_value=3Plural
+  noun9_det=imp
+    noun9_stem1_orth=kejat
+    noun9_stem1_pred=_ke_n_rel
+  verb1_name=intr-verb
+  verb1_valence=intrans
+    verb1_stem1_orth=et-a
+    verb1_stem1_pred=_et-a_v_rel
+    verb1_stem2_orth=ka
+    verb1_stem2_pred=_ka_v_rel
+  verb2_name=tr-verb
+  verb2_valence=trans
+    verb2_stem1_orth=õ-a
+    verb2_stem1_pred=_õ-a_v_rel
+    verb2_stem2_orth=ko
+    verb2_stem2_pred=_ko_v_rel
+    verb2_stem3_orth=boja
+    verb2_stem3_pred=_boja_v_rel
+
+section=morphology
+
+section=toolbox-import
+
+section=test-sentences
+
+section=gen-options
+
+section=ToolboxLexicon
