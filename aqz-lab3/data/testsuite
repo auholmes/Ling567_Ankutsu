@@ -166,7 +166,7 @@ Judgment: g
 Vetted: f
 Phenomena: tense
 on ko  kɨjtpit kom 
-1S fish inguest PROJ 
+1S fish ingest PROJ 
 I will eat fish
 
 # Tense Example 2
@@ -175,7 +175,7 @@ Judgment: g
 Vetted: f
 Phenomena: tense
 on ko  kɨjtpit
-1S fish inguest 
+1S fish ingest 
 I eat fish
 
 # Tense Example 3
@@ -184,7 +184,7 @@ Judgment: u
 Vetted: f
 Phenomena: tense
 on ko kom kɨjtpit 
-1S fish PROJ inguest 
+1S fish PROJ ingest 
 I will eat fish
 
 # Tense Example 4
@@ -193,7 +193,7 @@ Judgment: u
 Vetted: f
 Phenomena: tense
 on kom ko  kɨjtpit 
-1S PROJ fish inguest 
+1S PROJ fish ingest 
 I will eat fish
 
 # Tense Example 5
@@ -202,7 +202,7 @@ Judgment: u
 Vetted: f
 Phenomena: tense
 kom on ko  kɨjtpit
-PROJ 1S fish inguest
+PROJ 1S fish ingest
 I will eat fish
 
 # Aspect Example 1
@@ -299,7 +299,7 @@ aɾop kit ko
 who seed eat
 Who ate the seed?
 
-# Wh question example 3
+# Wh question Example 3
 Source: author
 Judgment: u
 Vetted: f
@@ -308,7 +308,7 @@ kit ko aɾop
 seed eat who
 Who at the seed?
 
-# Wh question example 4
+# Wh question Example 4
 Source: author
 Judgment: u
 Vetted: f
@@ -316,3 +316,45 @@ Phenomena: wh question
 te taɾa ko
 2S what eat
 What did you eat?
+
+############################################################
+# Negation
+############################################################
+
+# Negation Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+tawtʃe nõm ko-ɾom
+peccary doesn't eat-NEG
+The peccary doesn't eat.
+
+# Negation Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+tawtʃe nõm et-om
+peccary doesn't sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 3
+# monosyllabic verb that ends in -t has -om affix for negation, not ɾom
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+tawtʃe nõm et-ɾom
+peccary doesn't sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+tawtʃe nõm ko-om
+peccary doesn't eat-NEG
+The peccary doesn't eat.
+
