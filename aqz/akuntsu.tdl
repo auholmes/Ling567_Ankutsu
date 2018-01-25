@@ -1,0 +1,219 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Grammar of Akuntsu
+;;; created at:
+;;;     Wed Jan 24 04:32:37 UTC 2018
+;;; based on Matrix customization system version of:
+;;;     Wed Jan 24 01:09:00 UTC 2018
+;;;
+;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Type assigning empty mod list. Added to basic types for nouns, verbs and determiners.
+
+non-mod-lex-item := lex-item &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < > ].
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Matrix Type Addenda
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+head :+ [ AUX bool,
+    FORM form ].
+
+png :+ [ PERNUM pernum ].
+
+basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
+
+basic-head-opt-subj-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+;;;;;;;;;;;;;;
+;;; Features
+;;;;;;;;;;;;;;
+
+;;; Pernum
+
+pernum := *top*.
+Singular := pernum.
+Plural := pernum.
+1st := pernum.
+2nd := pernum.
+3rd := pernum.
+1Singular := 1st & Singular.
+2Singular := 2nd & Singular.
+3Singular := 3rd & Singular.
+1Plural := 1st & Plural.
+1Plural_incl := 1Plural.
+1Plural_excl := 1Plural.
+2Plural := 2nd & Plural.
+3Plural := 3rd & Plural.
+
+;;; Form
+
+form := *top*.
+nonfinite := form.
+finite := form.
+negform := nonfinite.
+
+;;; Tense
+
+nonfuture := tense.
+future := tense.
+
+;;;;;;;;;;;;;;;;;;;
+;;; Lexical Types
+;;;;;;;;;;;;;;;;;;;
+
+;;; Nouns
+
+noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-item &
+  [ ARG-ST < #spr >,
+    SYNSEM.LOCAL.CAT.VAL [ COMPS < >,
+                           SUBJ < >,
+                           SPEC < >,
+                           SPR < #spr &
+                                 [ LOCAL.CAT.HEAD det,
+                                   OPT + ] > ] ].
+
+cn-lxm-noun-lex := noun-lex.
+
+pn-lxm-noun-lex := noun-lex.
+
+pron-lxm-1S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Singular ].
+
+pron-lxm-2S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Singular ].
+
+pron-lxm-3S-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Singular ].
+
+pron-lxm-1PLI-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_incl ].
+
+pron-lxm-1PLE-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_excl ].
+
+pron-lxm-2PL-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Plural ].
+
+pron-lxm-3PL-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Plural ].
+
+;;; Verbs
+
+verb-lex := non-mod-lex-item &
+  [ SYNSEM.LOCAL.CAT.HEAD verb ].
+
+main-verb-lex := verb-lex & basic-verb-lex &
+  [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
+                         VAL [ SPR < >,
+                               SPEC < >,
+                               SUBJ < #subj > ] ],
+                   CONT.HOOK.XARG #xarg ],
+    ARG-ST.FIRST #subj &
+                 [ LOCAL [ CAT cat-sat &
+                               [ VAL [ SPR < >,
+                                       COMPS < > ] ],
+                           CONT.HOOK.INDEX #xarg ] ] ].
+
+aux-lex := verb-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.AUX + ].
+
+intransitive-verb-lex := main-verb-lex & intransitive-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < >,
+    ARG-ST.FIRST.LOCAL.CAT.HEAD noun ].
+
+transitive-verb-lex := main-verb-lex & transitive-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < #comps >,
+    ARG-ST < [ LOCAL.CAT.HEAD noun ],
+             #comps &
+             [ LOCAL.CAT cat-sat &
+                         [ VAL [ SPR < >,
+                                 COMPS < > ],
+                           HEAD noun ] ] > ].
+
+iv-lxm-verb-lex := intransitive-verb-lex.
+
+tr-verb-verb-lex := transitive-verb-lex.
+
+;;; Auxiliaries
+
+s-comp-aux := aux-lex & basic-one-arg &
+  [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+                           SPEC < >,
+                           SUBJ < >,
+                           COMPS < #comps > ],
+    ARG-ST < #comps &
+             [ LOCAL.CAT [ VAL [ SUBJ < >,
+                                 COMPS < >,
+                                 SPR < >,
+                                 SPEC < > ],
+                           HEAD verb &
+                                [ AUX - ] ] ] > ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+s-comp-aux-with-pred := s-comp-aux & hcons-lex-item &
+  [ SYNSEM [ LOCAL.CONT.HCONS <! qeq &
+                                 [ HARG #harg,
+                                   LARG #larg ] !>,
+             LKEYS.KEYREL event-relation &
+                          [ ARG1 #harg ] ],
+    ARG-ST < [ LOCAL.CONT.HOOK.LTOP #larg ] > ].
+
+tense-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE future,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+NEGATION-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL.CAT [ HEAD.FORM negform,
+                       VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ] ].
+
+;;; Adjectives
+
+adj-lex := basic-intersective-adjective-lex.
+
+adj-lxm-adj-lex := attr-only-adj-lex &
+  [ SYNSEM.LOCAL.CAT.POSTHEAD + ].
+
+; Basic attributive adjective definition
+
+attr-adj-lex := adj-lex & intersective-mod-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+                                              VAL.SPR cons ] ] > ].
+
+attr-only-adj-lex := attr-adj-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD.PRD -,
+                       VAL.SUBJ < > ] ].
+
+;;; Complementizers
+
+;;;;;;;;;;;;;;;;;;;
+;;; Lexical Rules
+;;;;;;;;;;;;;;;;;;;
+
+;;; Lexical rule types
+
+;;;;;;;;;;;;;;;;;;;
+;;; Phrasal Types
+;;;;;;;;;;;;;;;;;;;
+
+;Constraint on MC used to be part of matrix.tdl
+;;it applies to all wo implementations, except for v2
+
+comp-head-phrase := basic-head-1st-comp-phrase & head-final.
+
+subj-head-phrase := decl-head-subj-phrase & head-final &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
+; introduced to match the semantic effect of bare NPs in your language.
+
+bare-np-phrase := basic-bare-np-phrase &
+  [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
