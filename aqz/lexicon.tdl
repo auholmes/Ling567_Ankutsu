@@ -1,10 +1,9 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Nouns
 
-%20kɨjtpit := cn-lxm-noun-lex &
-  [ STEM < "",
-           "kɨjtpit" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_ fish_n_rel" ].
+kɨjtpit := cn-lxm-noun-lex &
+  [ STEM < "kɨjtpit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_fish_n_rel" ].
 
 tawtʃe := cn-lxm-noun-lex &
   [ STEM < "tawtʃe" >,
