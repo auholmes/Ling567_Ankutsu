@@ -82,7 +82,7 @@ Judgment: g
 Vetted: s
 Phenomena: pronouns
 en kɨjtpit ko
-2s fish ingest
+2s fish eat
 you eat fish
 
 # Pronoun Example 3
@@ -91,7 +91,7 @@ Judgment: g
 Vetted: s
 Phenomena: pronouns
 te kit ko
-3S seed ingest
+3S seed eat
 he ate the seed
 
 # Pronoun Example 4
@@ -148,7 +148,7 @@ Judgment: g
 Vetted: f
 Phenomena: tam
 on kɨjtpit ko kom
-1S fish ingest FUT
+1S fish eat FUT
 I will eat fish
 
 # Tense Example 2
@@ -157,7 +157,7 @@ Judgment: g
 Vetted: f
 Phenomena: tam
 on kɨjtpit ko
-1S fish ingest 
+1S fish eat 
 I eat fish
 
 # Tense Example 3
@@ -166,7 +166,7 @@ Judgment: u
 Vetted: f
 Phenomena: tam
 on kɨjtpit kom ko
-1S fish FUT ingest
+1S fish FUT eat
 I will eat fish
 
 # Tense Example 4
@@ -175,7 +175,7 @@ Judgment: u
 Vetted: f
 Phenomena: tam
 on kom kɨjtpit ko
-1S FUT fish ingest
+1S FUT fish eat
 I will eat fish
 
 # Tense Example 5
@@ -184,7 +184,7 @@ Judgment: u
 Vetted: f
 Phenomena: tam
 kom on kɨjtpit ko
-FUT 1S fish ingest
+FUT 1S fish eat
 I will eat fish
 
 # Aspect Example 1
@@ -326,8 +326,8 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: negation
-tawtʃe nõm ko-ɾom
-peccary doesn't eat-NEG
+nõm tawtʃe ko-ɾom
+no peccary eat-NEG
 The peccary doesn't eat.
 
 # Negation Example 2
@@ -335,7 +335,7 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: negation
-tawtʃe nõm et-om
+nõm tawtʃe et-om
 peccary doesn't sleep-NEG
 The peccary doesn't sleep.
 
@@ -345,7 +345,7 @@ Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-tawtʃe nõm et-ɾom
+nõm tawtʃe et-ɾom
 peccary doesn't sleep-NEG
 The peccary doesn't sleep.
 
@@ -354,7 +354,7 @@ Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-tawtʃe nõm ko-om
+nõm tawtʃe ko-om
 peccary doesn't eat-NEG
 The peccary doesn't eat.
 
@@ -395,3 +395,30 @@ Stripped notebook
 ############################################################
 # Adverbs Examples
 ############################################################
+
+# Adverb Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-kwat-ka
+water boil-boil-TR
+The water is boiling (vigorously)
+
+# Adverb Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-ka
+water boil-TR
+The water is boiling (vigorously)
+
+# Adverb Example 3
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-kwat
+water boil-boil
+The water is boiling (vigorously)
