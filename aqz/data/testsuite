@@ -146,7 +146,7 @@ they sleep
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: tense
+Phenomena: tam
 on kɨjtpit ko kom
 1S fish ingest FUT
 I will eat fish
@@ -155,7 +155,7 @@ I will eat fish
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: tense
+Phenomena: tam
 on kɨjtpit ko
 1S fish ingest 
 I eat fish
@@ -164,7 +164,7 @@ I eat fish
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tense
+Phenomena: tam
 on kɨjtpit kom ko
 1S fish FUT ingest
 I will eat fish
@@ -173,7 +173,7 @@ I will eat fish
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tense
+Phenomena: tam
 on kom kɨjtpit ko
 1S FUT fish ingest
 I will eat fish
@@ -182,7 +182,7 @@ I will eat fish
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tense
+Phenomena: tam
 kom on kɨjtpit ko
 FUT 1S fish ingest
 I will eat fish
@@ -191,7 +191,7 @@ I will eat fish
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en boja-ɾa kɨp
 2S cut-HAB wood
 you cut wood
@@ -200,7 +200,7 @@ you cut wood
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en-ɾa boja kɨp
 2S-HAB cut wood
 you cut wood
@@ -209,7 +209,7 @@ you cut wood
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en boja kɨp-ɾa
 2S cut wood-HAB
 you cut wood
@@ -218,7 +218,7 @@ you cut wood
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: iterative
+Phenomena: tam
 te et-a ekwa
 3S sleep-THV ITER
 He sleeps continuously
@@ -227,7 +227,7 @@ He sleeps continuously
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: iterative
+Phenomena: tam
 te ekwa et-a
 3S ITER sleep-THV
 He sleeps continuously
@@ -236,7 +236,7 @@ He sleeps continuously
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: iterative
+Phenomena: tam
 ekwa te et-a
 ITER 3S sleep-THV
 He sleeps continuously
@@ -245,7 +245,7 @@ He sleeps continuously
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: reduplication
+Phenomena: tam
 kejat ka-ka
 3PL go-RED
 they go and go
@@ -254,7 +254,7 @@ they go and go
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: reduplication
+Phenomena: tam
 kejat-ka ka
 3PL-RED go
 they go and go
@@ -358,7 +358,7 @@ tooth=NEG
 It isn't sharpened
 
 # Negation Example 5
-Source: a(p.297)
+Source: a:297
 Judgment: g
 Vetted: f
 Phenomena: Negation
