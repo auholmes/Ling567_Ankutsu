@@ -322,121 +322,41 @@ Who ate the seed?
 ############################################################
 
 # Negation Example 1
-Source: a(p.297)
+Source: author
 Judgment: g
 Vetted: f
-Phenomena: Negation
-jãj=eɾom
-tooth=NEG
-It isn't sharpened
+Phenomena: negation
+tawtʃe nõm ko-ɾom
+peccary doesn't eat-NEG
+The peccary doesn't eat.
 
 # Negation Example 2
-Source: auther
-Judgment: u
+Source: author
+Judgment: g
 Vetted: f
-Phenomena: Negation
-jãj
-tooth
-It isn't sharpened
+Phenomena: negation
+tawtʃe nõm et-om
+peccary doesn't sleep-NEG
+The peccary doesn't sleep.
 
 # Negation Example 3
+# monosyllabic verb that ends in -t has -om affix for negation, not ɾom
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: Negation
-jãj=ɾom
-tooth=NEG
-It isn't sharpened
+Phenomena: negation
+tawtʃe nõm et-ɾom
+peccary doesn't sleep-NEG
+The peccary doesn't sleep.
 
 # Negation Example 4
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: Negation
-jãj=om
-tooth=NEG
-It isn't sharpened
-
-# Negation Example 5
-Source: a:297
-Judgment: g
-Vetted: f
-Phenomena: Negation
-nõm et=om
-no sleep=NEG
-She doesn't sleep
-
-# Negation Example 6
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm et
-no sleep=NEG
-She doesn't sleep
-
-# Negation Example 7
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm et=eɾom
-no sleep=NEG
-She doesn't sleep
-
-# Negation Example 8
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm et=ɾom
-no sleep=NEG
-She doesn't sleep
-
-# Negation Example 9
-Source: author
-Judgment: g
-Vetted: f
-Phenomena: Negation
-nõm ko=ɾom
-no ingest=NEG
-He doesn't eat
-
-# Negation Example 10
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm ko
-no ingest
-He doesn't eat
-
-# Negation Example 11
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm ko=eɾom
-no ingest=NEG
-He doesn't eat
-
-# Negation Example 11
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-nõm ko=om
-no ingest=NEG
-He doesn't eat
-
-# Negation Example 12
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: Negation
-ko=ɾom nõm
-ingest=NEG no
-He doesn't eat
+Phenomena: negation
+tawtʃe nõm ko-om
+peccary doesn't eat-NEG
+The peccary doesn't eat.
 
 ############################################################
 # Agreement Examples
