@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Fri Jan 26 01:50:32 UTC 2018
+;;;     Sat Jan 27 00:36:15 UTC 2018
 ;;; based on Matrix customization system version of:
-;;;     Thu Jan 25 03:30:46 UTC 2018
+;;;     Fri Jan 26 22:56:17 UTC 2018
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -20,6 +20,10 @@ non-mod-lex-item := lex-item &
 
 head :+ [ AUX bool,
     FORM form ].
+
+inflected :+ [ ASPEC-OR-NEG1-OR-TENSE-FLAG luk ].
+
+infl-satisfied :+ [ ASPEC-OR-NEG1-OR-TENSE-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum ].
 
@@ -55,11 +59,19 @@ form := *top*.
 nonfinite := form.
 finite := form.
 negform := nonfinite.
+futform := finite.
+base := nonfinite.
 
 ;;; Tense
 
 nonfuture := tense.
 future := tense.
+
+;;; Aspect
+
+Habitual := aspect.
+Iterative := aspect.
+Reduplication := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -106,7 +118,7 @@ pron-lxm-3PL-noun-lex := noun-lex &
 verb-lex := non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.HEAD verb ].
 
-main-verb-lex := verb-lex & basic-verb-lex &
+main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-or-tense-rule-dtr &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
                          VAL [ SPR < >,
                                SPEC < >,
@@ -134,9 +146,11 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                                  COMPS < > ],
                            HEAD noun ] ] > ].
 
-iv-lxm-verb-lex := intransitive-verb-lex.
+iv-lxm-verb-lex := intransitive-verb-lex &
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
 
-tr-verb-verb-lex := transitive-verb-lex.
+tr-verb-verb-lex := transitive-verb-lex &
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
 
 ;;; Auxiliaries
 
@@ -150,8 +164,7 @@ s-comp-aux := aux-lex & basic-one-arg &
                                  COMPS < >,
                                  SPR < >,
                                  SPEC < > ],
-                           HEAD verb &
-                                [ AUX - ] ] ] > ].
+                           HEAD verb ] ] > ].
 
 ; Not inheriting from basic-verb-lex, so need to put in
 ; event-relation by hand here.
@@ -171,9 +184,29 @@ tense-aux-lex := s-comp-aux-with-pred &
 ; Not inheriting from basic-verb-lex, so need to put in
 ; event-relation by hand here.
 
-NEGATION-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL.CAT [ HEAD.FORM negform,
-                       VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ] ].
+NEG1-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Habitual-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Habitual,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Iteration-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Reduplication-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Reduplication,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
 ;;; Adjectives
 
@@ -198,7 +231,59 @@ attr-only-adj-lex := attr-adj-lex &
 ;;; Lexical Rules
 ;;;;;;;;;;;;;;;;;;;
 
+;;; Intermediate rule types
+
+aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
+
 ;;; Lexical rule types
+
+neg1-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+    DTR aspec-or-neg1-or-tense-rule-dtr ].
+
+; This adds negative semantics to the verb's
+; RELS list.
+
+neg1_rule-lex-rule := neg1-lex-rule-super &
+  [ C-CONT [ HOOK [ XARG #xarg,
+                    LTOP #ltop,
+                    INDEX #ind ],
+             RELS <! event-relation &
+                     [ PRED "neg_rel",
+                       LBL #ltop,
+                       ARG1 #harg ] !>,
+             HCONS <! qeq &
+                      [ HARG #harg,
+                        LARG #larg ] !> ],
+    SYNSEM.LKEYS #lkeys,
+    DTR.SYNSEM [ LKEYS #lkeys,
+                 LOCAL [ CONT.HOOK [ XARG #xarg,
+                                     INDEX #ind,
+                                     LTOP #larg ],
+                         CAT.HEAD verb ] ] ].
+
+tense-lex-rule-super := add-only-no-ccont-rule &
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+    DTR aspec-or-neg1-or-tense-rule-dtr ].
+
+future_rule-lex-rule := infl-lex-rule & tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future ].
+
+non-future-lex-rule := const-lex-rule & tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE nonfuture ].
+
+aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+    DTR aspec-or-neg1-or-tense-rule-dtr ].
+
+habitual-lex-rule := aspec-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Habitual ].
+
+Iterative-lex-rule := aspec-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Iterative ].
+
+Reduplication-lex-rule := aspec-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Reduplication ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types

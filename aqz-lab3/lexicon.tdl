@@ -77,25 +77,29 @@ peɾek := adj-lxm-adj-lex &
 
 ;;; Verbs
 
-et := iv-lxm-verb-lex &
-  [ STEM < "et" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
-
 ka := iv-lxm-verb-lex &
   [ STEM < "ka" >,
     SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
 
-õ := tr-verb-verb-lex &
-  [ STEM < "õ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
-
-ko := tr-verb-verb-lex &
-  [ STEM < "ko" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_ingest_v_rel" ].
+et-a := iv-lxm-verb-lex &
+  [ STEM < "et-a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 boja := tr-verb-verb-lex &
   [ STEM < "boja" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+õ-a := tr-verb-verb-lex &
+  [ STEM < "õ-a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
+
+ko-a := tr-verb-verb-lex &
+  [ STEM < "ko-a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+
+ko := tr-verb-verb-lex &
+  [ STEM < "ko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
 ;;; Auxiliaries
 
@@ -103,6 +107,18 @@ kom := tense-aux-lex &
   [ STEM < "kom" >,
     SYNSEM.LKEYS.KEYREL.PRED "_FUTURE_v_rel" ].
 
-nõm := NEGATION-aux-lex &
-  [ STEM < "nõm" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_no_v_rel" ].
+eɾon := NEG1-aux-lex &
+  [ STEM < "eɾon" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_neg_v_rel" ].
+
+-ɾa := Habitual-aux-lex &
+  [ STEM < "-ɾa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_HAB_v_rel" ].
+
+ekwa := Iteration-aux-lex &
+  [ STEM < "ekwa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ITER_v_rel" ].
+
+-ka := Reduplication-aux-lex &
+  [ STEM < "-ka" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_REDU_v_rel" ].

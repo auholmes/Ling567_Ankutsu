@@ -1,0 +1,22 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; Inflecting Lexical Rule Instances
+
+neg1_rule-suffix :=
+%suffix (* -ɾom)
+neg1_rule-lex-rule.
+
+future_rule-suffix :=
+%suffix (* kom)
+future_rule-lex-rule.
+
+habitual-suffix :=
+%suffix (* ɾa)
+habitual-lex-rule.
+
+Iterative-suffix :=
+%suffix (* ekwa)
+Iterative-lex-rule.
+
+Reduplication-suffix :=
+%suffix (* ka)
+Reduplication-lex-rule.

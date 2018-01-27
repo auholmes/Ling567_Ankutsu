@@ -62,6 +62,9 @@ E.TENSE : E.TENSE
   * <> *
 
 E.ASPECT : E.ASPECT
+  Habitual <> Habitual
+  Iterative <> Iterative
+  Reduplication <> Reduplication
   * <> *
 
 E.MOOD : E.MOOD

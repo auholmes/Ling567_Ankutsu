@@ -1,0 +1,2 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+non-future-lex := non-future-lex-rule.

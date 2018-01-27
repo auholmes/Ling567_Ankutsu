@@ -14,7 +14,7 @@ Source: a:198
 Vetted: s
 Judgment: g
 Phenomena: word order
-Tʃaɾuj kɨjtpit õ-a
+Tʃaɾuj kɨjtpit õ-a
 Tʃaruj fish give-THV
 Tʃaruj gave fish
 
@@ -23,7 +23,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: word order
-Tʃaɾuj õ-a kɨjtpit
+Tʃaɾuj õ-a kɨjtpit
 Tʃaruj give-THV fish
 Tʃaruj gave fish
 
@@ -32,7 +32,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: word order
-õ-a Tʃaɾuj kɨjtpit
+õ-a Tʃaɾuj kɨjtpit
 give-THV Tʃaruj fish
 Tʃaruj gave fish
 
@@ -41,7 +41,7 @@ Source: author
 Vetted: f
 Judgment: u
 Phenomena: word order
-õ-a kɨjtpit Tʃaɾuj
+õ-a kɨjtpit Tʃaɾuj
 give-THV fish Tʃaruj
 Tʃaruj gave fish
 
@@ -326,7 +326,7 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: negation
-nõm tawtʃe ko-ɾom
+nõm tawtʃe ko-ɾom
 no peccary eat-NEG
 The peccary doesn't eat.
 
@@ -335,8 +335,8 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: negation
-nõm tawtʃe et-om
-peccary doesn't sleep-NEG
+nõm tawtʃe et-om
+no peccary sleep-NEG
 The peccary doesn't sleep.
 
 # Negation Example 3
@@ -345,8 +345,8 @@ Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-nõm tawtʃe et-ɾom
-peccary doesn't sleep-NEG
+nõm tawtʃe et-ɾom
+no peccary sleep-NEG
 The peccary doesn't sleep.
 
 # Negation Example 4
@@ -354,8 +354,8 @@ Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-nõm tawtʃe ko-om
-peccary doesn't eat-NEG
+nõm tawtʃe ko-om
+no peccary eat-NEG
 The peccary doesn't eat.
 
 ############################################################
