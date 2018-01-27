@@ -1,0 +1,345 @@
+Ling 576 - Lab 3
+Aycha Edwards and Audrey HolmesLanguage: AkuntsuWrite-up by Aycha Edwards
+
+Word order in Akuntsu is primarily SOV with some variation to OVS or VO(S). Examples 1 and 2 show a grammatical SOV sentence and an ungrammatical SVO sentence. Example 8 shows a grammatical OVS sentence, which does not parse due to the constraints of the customization system.
+
+UPDATE from Lab2:
+In Akuntsu, when the agent occurs post-verbally, it is due to the fact that the patient is the main topic of the conversation. Focus markers may or may not appear, depending on the semantics of the proposition.
+
+Here are some examples:
+ 
+# Word Order Example 1
+Source: a:198
+Vetted: s
+Judgment: g
+Phenomena: word order
+Tʃaɾuj  kɨjtpit	õ-a   
+Tʃaruj 	fish 	give-THV
+Tʃaruj 	gave 	fish
+ 
+# Word Order Example 2
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+Tʃaɾuj 	õ-a kɨjtpit  
+Tʃaruj 	give-THV fish
+Tʃaruj 	gave 	fish
+ 
+# Word Order Example 8
+Source: a:283
+Vetted: s
+Judgment: g
+Phenomena: word order
+ɨkɨ apeka poɾakɨ
+water drink curassow 
+Curassow is drinking water
+ 
+In the customization system, we chose SOV because it is the most common word order for the language and the customization system was not flexible enough to model special cases for OVS and VO(S). We will dig deeper into this in future labs.
+
+The thematic vowel “-a” (THV) attaches to monosyllabic verbs, except verbs ending in a, and they do not attach to these verbs when other suffixes are attached to them.
+
+Here are some examples:
+ 
+# Verb Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+otʃe et-a
+1PL.EXCL sleep-THV
+we sleep
+ 
+# Verb Example 1
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: pronouns
+otʃe et
+1PL.EXCL sleep
+we sleep
+
+We tried to separate “-a” from the verbs on this lab and created an affix for it under the bipartite stem function in the lexicon section for verb type, but that seemed to create problems so we decided to keep the vowel as part of the verb.
+
+Akuntsu has seven independent pronouns: 1s, 2s, 3s, 1pl inclusive, 1pl exclusive, 2pl, and 3pl.
+
+UPDATE from Lab2:
+In the grammar matrix we listed under the Number category that Akuntsu has the Singular Feature and the Plural Feature, while under the Person category it has the First, Second and Third values and first person plural has the subtypes of inclusive and exclusive.
+ 
+Here are some examples:
+ 
+# Pronoun Example 5
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+otʃe et-a
+1PL.EXCL sleep-THV
+we sleep
+
+# Pronoun Example 6
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: pronouns
+et-a otʃe 
+sleep-THV 1PL.EXCL
+we sleep
+ 
+# Pronoun Example 7
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+kejat et-a
+3PL sleep-THV
+they sleep
+ 
+The lexical entries for each of these pronouns has a pernum feature that takes one of the following values: 1s, 2s, 2p, 3s, 3p, 1p-incl, 1p-excl.
+
+Akuntsu does not have case, gender, or determiners.
+ 
+Akuntsu has two tenses: future and non-future. 
+
+UPDATE from Lab2: Tense marker “kom” was entered in the lexicon and morphology sections of the grammar matrix as a suffix that come after the verb to mark the future tense, while its absence marks non-future tense and its marked by no affix. 
+
+Here are some examples:
+
+# Tense Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tense
+on kɨjtpit ko kom
+1S fish eat FUT
+I will eat fish
+
+# Tense Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tense
+on kɨjtpit ko
+1S fish eat 
+I eat fish
+
+# Tense Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tense
+on kɨjtpit kom ko
+1S fish FUT eat
+I will eat fish
+
+Akuntsu has several aspects including iterative, reduplication, and habitual.
+
+UPDATED from Lab2:
+The habitual and iterative aspects are marked by suffixes that go after the verb.
+
+Here are some examples:
+
+# Aspect Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: habitual
+en boja-ɾa kɨp
+2S cut-HAB woodyou cut wood
+
+# Aspect Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: habitual
+en-ɾa boja kɨp
+2S-HAB cut woodyou cut wood
+
+# Aspect Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: habitual
+en boja kɨp-ɾa
+2S cut wood-HAByou cut wood
+
+# Aspect Example 4
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: iterative
+te et-a ekwa
+3S sleep-THV ITERHe sleeps continuously
+
+# Aspect Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: iterative
+te ekwa et-a
+3S ITER sleep-THVHe sleeps continuously
+
+# Aspect Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: iterative
+ekwa te et-a
+ITER 3S sleep-THVHe sleeps continuously
+
+ 
+In reduplication, the verb or part of the verb is repeated. Because the grammar matrix does not support reduplication. A morpheme “-ka” for the example below was created as an auxiliary verb lexicon item and the morphology rule for aspect reduplication was applied to it as an initial attempt to see if we can parse.
+
+Here are some examples:
+
+# Aspect Example 6
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: reduplication
+kejat ka-ka
+3PL go-REDU
+they go and go
+
+# Aspect Example 7
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: reduplication
+kejat-ka ka
+3PL-REDU go
+they go and go
+
+UPDATE from Lab2:
+Ankutsu has Wh-questions, but does not have Wh-words that express an argument of an embedded verb such as in English “I thought she did what she was told.” Below are grammatical and ungrammatical examples of Wh-questions with “What” and “Who” in Akuntsu. 
+# Wh question Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question with “What”
+taɾa te kowhat 2S eatWhat did you eat?# Wh question Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question with “Who”
+aɾop kit kowho seed eatWho ate the seed?
+
+# Wh question Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question with “What”
+te ko2S eatWhat did you eat?
+
+# Wh question Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question with “What”
+te ko taɾa2S eat whatWhat did you eat?
+
+# Wh question Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question with “Who”
+kit koseed eatWho ate the seed?
+
+# Wh question Example 6
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question with “Who”
+kit ko aɾopseed eat whoWho ate the seed?
+
+Negation in Akuntsu has two markers. The fist marker is the suffix “eɾom” which can be modified to “ɾom” if the verb ends in vowel or “om” if the verb is monosyllabic and end in “t”. The second marker is the “nõm” which comes before the verb.
+
+# Negation Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+nõm tawtʃe ko-ɾom
+no peccary eat-NEG
+The peccary doesn't eat.
+
+# Negation Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+nõm tawtʃe et-om
+no peccary sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 3
+# monosyllabic verb that ends in -t has -om affix for negation, not ɾom
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+nõm tawtʃe et-ɾom
+no peccary sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+nõm tawtʃe ko-om
+no peccary eat-NEG
+The peccary doesn't eat.
+
+We had difficulty parsing negation in Akuntsu through a bipartite model to accommodate for “nõm” and “-eɾom” so we decided to go with a simple model, which uses “-eɾom” as its negation marker. In the “Word Order” section of the grammar matrix, under the section for auxiliary verbs, we opted that there can be more than one auxiliary in a clause. That might have an impact on having two negatives in a clause. “nõm” was the only prefix of the auxiliaries. I don’t know how much that might have affected the structure we have set up. Also, the system is not parsing the current negation structure we have. this could be because “-eɾom” is not matching the different requirements of the verbs in terms of the “-ɾom” and “-om” variations. 
+
+Akuntsu does not have Agreement, Coordination, or Agreement in coordinated NPs.
+
+There were only two example of attributive adjectives in Akuntsu. Both illustrate that these types of adjectives come after the verb. Below are some examples.
+
+# Attributive adjectives Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adj
+te kit potʃek ko
+3S seed striped eat
+he ate the striped seed
+
+# Attributive adjectives Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adj
+te potʃek kit ko
+3S striped seed eat
+he ate the striped seed
+
+
+There was only one example of adverbs in Akuntsu. Which is illustrated in the examples below. It is instantiated by duplication, so it is hard to know if adverbs in the language all behave like that or if there are other markers to indicate adverbs. Adverbs where not part of the grammar matrix for this lab.
+
+# Adverb Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adverb
+ɨkɨ kwat-kwat-ka
+water boil-boil-TRThe water is boiling (vigorously)
+
+# Adverb Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adverb
+ɨkɨ kwat-ka
+water boil-TRThe water is boiling (vigorously)
+
+# Adverb Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adverb
+ɨkɨ kwat-kwat
+water boil-boilThe water is boiling (vigorously)
+
+The coverage for the test suite was 57.1% with no over-generation. 
