@@ -1,0 +1,449 @@
+Language: Akuntsu
+Language code: aqz
+Lines: orth gloss translat
+Author: Audrey Holmes and Aycha Edwards
+Date: January 14, 2018
+Source a: Dissertation: Aragon 2014
+
+############################################################
+# Word Order Examples
+############################################################
+
+# Word Order Example 1
+Source: a:198
+Vetted: s
+Judgment: g
+Phenomena: word order
+Tʃaɾuj kɨjtpit õ-a
+Tʃaruj fish give-THV
+Tʃaruj gave fish
+
+# Word Order Example 2
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+Tʃaɾuj õ-a kɨjtpit
+Tʃaruj give-THV fish
+Tʃaruj gave fish
+
+# Word Order Example 3
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+õ-a Tʃaɾuj kɨjtpit
+give-THV Tʃaruj fish
+Tʃaruj gave fish
+
+# Word Order Example 4
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+õ-a kɨjtpit Tʃaɾuj
+give-THV fish Tʃaruj
+Tʃaruj gave fish
+
+# Word Order Example 5
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: word order
+tawtʃe et-a
+peccary sleep-THV
+The peccary sleeps
+
+# Word Order Example 6
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: word order
+et-a tawtʃe
+sleep-THV peccary
+The peccary sleeps
+
+############################################################
+# Pronoun Examples
+############################################################
+
+# Pronoun Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+on ka
+1s go
+I go
+
+# Pronoun Example 2
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+en kɨjtpit ko
+2s fish eat
+you eat fish
+
+# Pronoun Example 3
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+te kit ko
+3S seed eat
+he ate the seed
+
+# Pronoun Example 4
+Source: a:182
+Judgment: g
+Vetted: s
+Phenomena: pronouns
+kitʃe kɨp boja
+1PL.INCL wood cut
+we cut the wood
+
+# Pronoun Example 5
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+otʃe et-a
+1PL.EXCL sleep-THV
+we sleep
+
+# Pronoun Example 6
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+iat kit õ-a
+2PL seed give-THV
+you give seed
+
+# Pronoun Example 7
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: pronouns
+kejat et-a
+3PL sleep-THV
+they sleep
+
+############################################################
+# Case Examples
+############################################################
+
+############################################################
+# NP Examples
+############################################################
+
+############################################################
+# Tense / Aspect
+############################################################
+
+# Tense Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tam
+on kɨjtpit ko kom
+1S fish eat FUT
+I will eat fish
+
+# Tense Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tam
+on kɨjtpit ko
+1S fish eat 
+I eat fish
+
+# Tense Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+on kɨjtpit kom ko
+1S fish FUT eat
+I will eat fish
+
+# Tense Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+on kom kɨjtpit ko
+1S FUT fish eat
+I will eat fish
+
+# Tense Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+kom on kɨjtpit ko
+FUT 1S fish eat
+I will eat fish
+
+# Aspect Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tam
+en boja-ɾa kɨp
+2S cut-HAB wood
+you cut wood
+
+# Aspect Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+en-ɾa boja kɨp
+2S-HAB cut wood
+you cut wood
+
+# Aspect Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+en boja kɨp-ɾa
+2S cut wood-HAB
+you cut wood
+
+# Aspect Example 4
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tam
+te et-a ekwa
+3S sleep-THV ITER
+He sleeps continuously
+
+# Aspect Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+te ekwa et-a
+3S ITER sleep-THV
+He sleeps continuously
+
+# Aspect Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+ekwa te et-a
+ITER 3S sleep-THV
+He sleeps continuously
+
+# Aspect Example 6
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: tam
+kejat ka-ka
+3PL go-RED
+they go and go
+
+# Aspect Example 7
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: tam
+kejat-ka ka
+3PL-RED go
+they go and go
+
+############################################################
+# WH-Questions
+############################################################
+
+# Wh question Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question 
+taɾa te ko
+what 2S eat
+What did you eat?
+
+# Wh question Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question 
+aɾop kit ko
+who seed eat
+Who ate the seed?
+
+# Wh question Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question 
+te ko
+2S eat
+What did you eat?
+
+# Wh question Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question
+te ko taɾa
+2S eat what
+What did you eat?
+
+# Wh question Example 5
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question 
+kit ko
+seed eat
+Who ate the seed?
+
+# Wh question Example 6
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question 
+kit ko aɾop
+seed eat who
+Who ate the seed?
+
+############################################################
+# Negation Examples
+############################################################
+
+# Negation Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+nõm tawtʃe ko-ɾom
+no peccary eat-NEG
+The peccary doesn't eat.
+
+# Negation Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: negation
+nõm tawtʃe et-om
+no peccary sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 3
+# monosyllabic verb that ends in -t has -om affix for negation, not ɾom
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+nõm tawtʃe et-ɾom
+no peccary sleep-NEG
+The peccary doesn't sleep.
+
+# Negation Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: negation
+nõm tawtʃe ko-om
+no peccary eat-NEG
+The peccary doesn't eat.
+
+############################################################
+# Agreement Examples
+############################################################
+
+############################################################
+# Coordination Examples
+############################################################
+
+############################################################
+# Agreement in coordinated NPs Examples
+############################################################
+
+############################################################
+# Attributive adjectives Examples
+############################################################
+
+# Attributive adjectives Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adj
+te kit potʃek ko
+3S seed striped eat
+he ate the striped seed
+
+# Attributive adjectives Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adj
+te potʃek kit ko
+3S striped seed eat
+he ate the striped seed
+
+############################################################
+# Adverbs Examples
+############################################################
+
+# Adverb Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-kwat-ka
+water boil-boil-TR
+The water is boiling (vigorously)
+
+# Adverb Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-ka
+water boil-TR
+The water is boiling (vigorously)
+
+# Adverb Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adv
+ɨkɨ kwat-kwat
+water boil-boil
+The water is boiling (vigorously)
+
+############################################################
+# Possessives Examples
+############################################################
+
+# Possessives Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: poss
+en o ø-kɨjtpit ko
+2s I-POSS fish eat
+you eat my fish
+
+# Possessives Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: poss
+en o kɨjtpit-ø ko
+2s I fish-POSS eat
+you eat my fish
+
+
+
