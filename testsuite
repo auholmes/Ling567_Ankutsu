@@ -191,34 +191,34 @@ I will eat fish
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: tam
-en boja-ɾa kɨp
-2S cut-HAB wood
+Phenomena: habitual
+en kɨp boja-ɾa 
+2S wood cut-HAB 
 you cut wood
 
 # Aspect Example 2
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tam
-en-ɾa boja kɨp
-2S-HAB cut wood
+Phenomena: habitual
+en-ɾa kɨp boja 
+2S-HAB wood cut 
 you cut wood
 
 # Aspect Example 3
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tam
-en boja kɨp-ɾa
-2S cut wood-HAB
+Phenomena: habitual
+en kɨp-ɾa boja 
+2S wood-HAB cut 
 you cut wood
 
 # Aspect Example 4
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: tam
+Phenomena: iteration
 te et-a ekwa
 3S sleep-THV ITER
 He sleeps continuously
@@ -227,7 +227,7 @@ He sleeps continuously
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tam
+Phenomena: iteration
 te ekwa et-a
 3S ITER sleep-THV
 He sleeps continuously
@@ -236,28 +236,10 @@ He sleeps continuously
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: tam
+Phenomena: iteration
 ekwa te et-a
 ITER 3S sleep-THV
 He sleeps continuously
-
-# Aspect Example 6
-Source: author
-Judgment: g
-Vetted: f
-Phenomena: tam
-kejat ka-ka
-3PL go-RED
-they go and go
-
-# Aspect Example 7
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: tam
-kejat-ka ka
-3PL-RED go
-they go and go
 
 ############################################################
 # WH-Questions
@@ -326,27 +308,26 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: negation
-nõm tawtʃe ko-ɾom
-no peccary eat-NEG
+tawtʃe ko-eɾom
+peccary eat-NEG
 The peccary doesn't eat.
 
 # Negation Example 2
 Source: author
-Judgment: g
+Judgment: u
 Vetted: f
 Phenomena: negation
-nõm tawtʃe et-om
-no peccary sleep-NEG
+tawtʃe-om et
+peccary sleep-NEG
 The peccary doesn't sleep.
 
 # Negation Example 3
-# monosyllabic verb that ends in -t has -om affix for negation, not ɾom
 Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-nõm tawtʃe et-ɾom
-no peccary sleep-NEG
+tawtʃe-eɾom et
+no peccary-NEG sleep
 The peccary doesn't sleep.
 
 # Negation Example 4
@@ -354,8 +335,8 @@ Source: author
 Judgment: u
 Vetted: f
 Phenomena: negation
-nõm tawtʃe ko-om
-no peccary eat-NEG
+tawtʃe ko
+peccary eat
 The peccary doesn't eat.
 
 ############################################################
@@ -365,6 +346,33 @@ The peccary doesn't eat.
 ############################################################
 # Coordination Examples
 ############################################################
+
+# Coordination Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: coordination
+Tʃaɾuj  kɨjtpit kit ko-a 
+ Tʃaɾuj fish seed eat
+Tʃaɾuj eats fish and seed
+
+# Coordination Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: coordination
+Tʃaɾuj  kɨjtpit ko-a kit
+ Tʃaɾuj fish eat seed
+Tʃaɾuj eats fish and seed
+
+# Coordination Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: coordination
+kit Tʃaɾuj  kɨjtpit ko-a 
+ seed Tʃaɾuj fish eat 
+Tʃaɾuj eats fish and seed
 
 ############################################################
 # Agreement in coordinated NPs Examples
@@ -395,33 +403,6 @@ he ate the striped seed
 ############################################################
 # Adverbs Examples
 ############################################################
-
-# Adverb Example 1
-Source: author
-Judgment: g
-Vetted: f
-Phenomena: adv
-ɨkɨ kwat-kwat-ka
-water boil-boil-TR
-The water is boiling (vigorously)
-
-# Adverb Example 2
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: adv
-ɨkɨ kwat-ka
-water boil-TR
-The water is boiling (vigorously)
-
-# Adverb Example 3
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: adv
-ɨkɨ kwat-kwat
-water boil-boil
-The water is boiling (vigorously)
 
 ############################################################
 # Possessives Examples
@@ -488,32 +469,23 @@ the peccary bit your hand
 # Yes-no qestions are marked by intonation only.
 
 ############################################################
-# Adverbial Clausal Modifiers
+# Valence-changing lexical rules
 ############################################################
 
-# Adverbial Clausal Modifiers Example 1
-Source: a:159
+# valence-change Example 1
+Source: author
 Judgment: g
-Vetted: s
-Phenomena: cl-mod
-pabape-bõ  ɨkɨ  kiɾam-ka en
-gourd-INS water pour-TR 2S
-you pour the water with the gourd
+Vetted: f
+Phenomena: valence-change
+mõ-atʃo-a 
+CAUS-bathe-THV
+‘to cause someone to bathe’
 
-# Adverbial Clausal Modifiers Example 2
+# valence-change Example 2
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: cl-mod
-pabape ɨkɨ  kiɾam-ka en
-gourd water pour-TR 2S
-you pour the water with the gourd
-
-# Adverbial Clausal Modifiers Example 3
-Source: author
-Judgment: u
-Vetted: f
-Phenomena: cl-mod
-bõ-pabape ɨkɨ  kiɾam-ka en
-INS-gourd water pour-TR 2S
-you pour the water with the gourd
+Phenomena: valence-change
+atʃo-a-mõ
+bathe-THV-CAUS
+‘to cause someone to bathe’
