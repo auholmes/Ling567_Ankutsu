@@ -1,0 +1,78 @@
+Lab 4 Writeup
+Audrey Holmes and Aycha Edwards
+Language: Akuntsu
+
+Possessives:
+
+Akuntsu distinguishes between contiguous and non-contiguous possessive relationships. In both cases, the possessor appears before the possessum, and a possession-marking prefix is attached to the possessum. For non-contiguous possessives, the prefix is t-, and for contiguous possessives, the prefix is ø-. 
+
+Here are some examples:
+
+# Possessives Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: poss
+en o t-kit ko
+2s I POSS-seed eat
+you eat my seed
+
+# Possessives Example 4
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: poss
+tawtʃe e ø-po tʃoga
+the peccary you POSS-hand bit
+the peccary bit your hand
+
+We modeled possession as possessor-first with the possessor acting like a specifier. We created POSS1-LEX-RULE and NONPOSS1-LEX-RULE to add the prefix t- to the possessum when the POSS_STRAT1 feature is plus. Additionally, we created POSS2-LEX-RULE and NONPOSS2-LEX-RULE to add the prefix ø- to the possessum when the POSS_STRAT2 feature is plus. The customization system only allows agreement in person, number, and gender for possessives, so we weren't able to constrain the lexical rules based on a contiguous feature. This caused overgenerationa and ambiguity. 
+ 
+Matrix yes-no questions are marked by intonation only. 
+
+There were no examples of clausal complements, clausal modifiers, or nominalization in the grammar we are working from. 
+
+Valence Changing Lexical Rule:
+
+The causative marker mõ- changes the valence of the verb. This prefix can only appear on intransitive verbs.
+
+Here are some examples. Note that they do not parse (yet).
+
+# valence-change Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: valence-change
+mõ-atʃo-a
+CAUS-bathe-THV
+to cause someone to bathe
+
+# valence-change Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: valence-change
+atʃo-a-mõ
+bathe-THV-CAUS
+to cause someone to bathe
+
+We were not able to model this using the customization system because the valence feature is missing from the website. Aycha posted about it on Canvas, but it looks like Chris wasn't able to deploy the updates in time for this lab.
+
+Coordination:
+
+We went back and fixed coordination for this lab. Coordination does in fact occur in Akuntsu. It is marked by juxtaposition of phrases.
+
+Here is an example:
+
+# Coordination Example 1
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: coordination
+Tʃaɾuj  kɨjtpit kit ko-a
+Tʃaɾuj fish seed eat
+Tʃaɾuj eats fish and seed
+
+We modeled this by selecting the asyndenton option in the customization system.
+
+Our coverage was 76.2%. Our overgeneration was 19.2%. The overgeneration is due to the two possessive cases as mentioned above. 
