@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Tue Feb 06 04:23:29 UTC 2018
+;;;     Tue Feb 06 22:29:50 UTC 2018
 ;;; based on Matrix customization system version of:
-;;;     Mon Feb  5 23:41:42 UTC 2018
+;;;     Tue Feb  6 06:42:07 UTC 2018
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -44,6 +44,11 @@ possessor := possessive.
 
 possessum := possessive.
 
+basic-bare-np-phrase :+ [ SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
+                       POSSESSUM #possessum ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
+                                POSSESSUM #possessum ] ].
+
 possessive-1 := possessive.
 
 possessor-1 := possessor & possessive-1.
@@ -54,6 +59,9 @@ basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 basic-head-opt-subj-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+head-adj-int-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR nonpossessive,
+                                    POSSESSUM nonpossessive ] ].
 
 possessive-2 := possessive.
 
@@ -215,26 +223,6 @@ s-comp-aux-with-pred := s-comp-aux & hcons-lex-item &
 
 tense-aux-lex := s-comp-aux-with-pred &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE future,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-NEG1-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Habitual-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Habitual,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Iteration-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
 ;;; Adjectives
@@ -425,8 +413,6 @@ head-spec-poss-phrase-1 := basic-head-spec-phrase-super & head-final &
                                             COMPS < > ],
                                       HEAD +nvjrpcmo &
                                            [ POSSESSOR nonpossessive ] ] ] ].
-
-head-adj-int-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.POSSESSOR nonpossessive ].
 
 head-spec-poss-phrase-2 := basic-head-spec-phrase-super & head-final &
   [ C-CONT.HOOK #hook,
