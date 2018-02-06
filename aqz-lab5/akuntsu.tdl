@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Tue Feb 06 04:23:29 UTC 2018
+;;;     Tue Feb 06 13:12:18 UTC 2018
 ;;; based on Matrix customization system version of:
-;;;     Mon Feb  5 23:41:42 UTC 2018
+;;;     Tue Feb  6 06:42:07 UTC 2018
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,11 +23,11 @@ head :+ [ PRON bool,
     POSSESSOR poss,
     FORM form ].
 
-inflected :+ [ POSS1-OR-POSS2-FLAG luk,
-    ASPEC-OR-NEG1-OR-TENSE-FLAG luk ].
+inflected :+ [ ASPEC-OR-NEG1-FLAG luk,
+    POSS1-OR-POSS2-FLAG luk ].
 
-infl-satisfied :+ [ POSS1-OR-POSS2-FLAG na-or-+,
-    ASPEC-OR-NEG1-OR-TENSE-FLAG na-or-+ ].
+infl-satisfied :+ [ ASPEC-OR-NEG1-FLAG na-or-+,
+    POSS1-OR-POSS2-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum ].
 
@@ -44,6 +44,11 @@ possessor := possessive.
 
 possessum := possessive.
 
+basic-bare-np-phrase :+ [ SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
+                       POSSESSUM #possessum ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
+                                POSSESSUM #possessum ] ].
+
 possessive-1 := possessive.
 
 possessor-1 := possessor & possessive-1.
@@ -54,6 +59,9 @@ basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 basic-head-opt-subj-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+head-adj-int-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR nonpossessive,
+                                    POSSESSUM nonpossessive ] ].
 
 possessive-2 := possessive.
 
@@ -154,7 +162,7 @@ pron-lxm-3PL-noun-lex := noun-lex &
 verb-lex := non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.HEAD verb ].
 
-main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-or-tense-rule-dtr &
+main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-rule-dtr &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
                          VAL [ SPR < >,
                                SPEC < >,
@@ -183,10 +191,10 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 iv-lxm-verb-lex := intransitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-FLAG - ].
 
 tr-verb-verb-lex := transitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-FLAG - ].
 
 ;;; Auxiliaries
 
@@ -217,26 +225,6 @@ tense-aux-lex := s-comp-aux-with-pred &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE future,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-NEG1-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Habitual-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Habitual,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Iteration-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
 ;;; Adjectives
 
 adj-lex := basic-intersective-adjective-lex.
@@ -262,15 +250,15 @@ attr-only-adj-lex := attr-adj-lex &
 
 ;;; Intermediate rule types
 
-aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
+aspec-or-neg1-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
 poss1-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-OR-POSS2-FLAG +,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
+                ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ],
     DTR noun-lex &
-        [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ].
+        [ INFLECTED.ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -314,9 +302,9 @@ nonposs-lex-rule := const-lex-rule & nonpossessive-lex-rule-1 & poss1-lex-rule-s
 
 poss2-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-OR-POSS2-FLAG +,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
+                ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ],
     DTR noun-lex &
-        [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ].
+        [ INFLECTED.ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ] ].
 
 possessum-lex-rule-2 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -359,9 +347,9 @@ nonpossessive-lex-rule-2 := add-only-no-ccont-rule &
 nonposs2_rule-lex-rule := const-lex-rule & nonpossessive-lex-rule-2 & poss2-lex-rule-super.
 
 neg1-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+  [ INFLECTED [ ASPEC-OR-NEG1-FLAG +,
                 POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
+    DTR aspec-or-neg1-rule-dtr &
         [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
 
 ; This adds negative semantics to the verb's
@@ -385,22 +373,10 @@ neg1_rule-lex-rule := neg1-lex-rule-super &
                                      LTOP #larg ],
                          CAT.HEAD verb ] ] ].
 
-tense-lex-rule-super := add-only-no-ccont-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
-                POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
-        [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
-
-future_rule-lex-rule := infl-lex-rule & tense-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future ].
-
-non-future-lex-rule := const-lex-rule & tense-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE nonfuture ].
-
 aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+  [ INFLECTED [ ASPEC-OR-NEG1-FLAG +,
                 POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
+    DTR aspec-or-neg1-rule-dtr &
         [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
 
 habitual-lex-rule := aspec-lex-rule-super &
@@ -425,8 +401,6 @@ head-spec-poss-phrase-1 := basic-head-spec-phrase-super & head-final &
                                             COMPS < > ],
                                       HEAD +nvjrpcmo &
                                            [ POSSESSOR nonpossessive ] ] ] ].
-
-head-adj-int-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.POSSESSOR nonpossessive ].
 
 head-spec-poss-phrase-2 := basic-head-spec-phrase-super & head-final &
   [ C-CONT.HOOK #hook,

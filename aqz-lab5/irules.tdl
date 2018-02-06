@@ -13,14 +13,10 @@ neg1_rule-suffix :=
 %suffix (* -eɾom)
 neg1_rule-lex-rule.
 
-future_rule-suffix :=
-%suffix (* kom)
-future_rule-lex-rule.
-
 habitual-suffix :=
-%suffix (* ɾa)
+%suffix (* -ɾa)
 habitual-lex-rule.
 
 Iterative-suffix :=
-%suffix (* ekwa)
+%suffix (* -ekwa)
 Iterative-lex-rule.

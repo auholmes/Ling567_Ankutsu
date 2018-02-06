@@ -122,15 +122,3 @@ tʃoga := tr-verb-verb-lex &
 kom := tense-aux-lex &
   [ STEM < "kom" >,
     SYNSEM.LKEYS.KEYREL.PRED "_FUTURE_v_rel" ].
-
-eɾon := NEG1-aux-lex &
-  [ STEM < "eɾon" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_neg_v_rel" ].
-
--ɾa := Habitual-aux-lex &
-  [ STEM < "-ɾa" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_HAB_v_rel" ].
-
-ekwa := Iteration-aux-lex &
-  [ STEM < "ekwa" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_ITER_v_rel" ].

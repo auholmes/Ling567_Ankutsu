@@ -2,5 +2,3 @@
 nonposs-lex := nonposs-lex-rule.
 
 nonposs2_rule-lex := nonposs2_rule-lex-rule.
-
-non-future-lex := non-future-lex-rule.
