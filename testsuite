@@ -477,15 +477,33 @@ Source: author
 Judgment: g
 Vetted: f
 Phenomena: valence-change
-mõ-atʃo-a 
-CAUS-bathe-THV
-to cause someone to bathe
+Tʃaɾuj en mõ-atʃo-a 
+Tʃaɾuj 2s CAUS-bathe-THV
+Tʃaɾuj causes you to bathe
 
 # valence-change Example 2
 Source: author
 Judgment: u
 Vetted: f
 Phenomena: valence-change
-atʃo-a-mõ
-bathe-THV-CAUS
-to cause someone to bathe
+Tʃaɾuj en atʃo-a-mõ
+Tʃaɾuj 2s bathe-THV-CAUS
+Tʃaɾuj causes you to bathe
+
+# valence-change Example 3
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: valence-change
+Tʃaɾuj mõ-atʃo-a en
+Tʃaɾuj CAUS-bathe-THV 2s
+Tʃaɾuj causes you to bathe
+
+# valence-change Example 4
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: valence-change
+mõ-atʃo-a Tʃaɾuj en
+CAUS-bathe-THV Tʃaɾuj 2s
+Tʃaɾuj causes you to bathe
