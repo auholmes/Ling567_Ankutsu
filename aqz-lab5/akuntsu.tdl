@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Tue Feb 06 00:38:39 UTC 2018
+;;;     Tue Feb 06 02:52:09 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Mon Feb  5 23:41:42 UTC 2018
 ;;;
@@ -23,11 +23,11 @@ head :+ [ PRON bool,
     POSSESSOR poss,
     FORM form ].
 
-inflected :+ [ ASPEC-OR-NEG1-FLAG luk,
-    POSS1-FLAG luk ].
+inflected :+ [ POSS1-OR-POSS2-FLAG luk,
+    ASPEC-OR-NEG1-OR-TENSE-FLAG luk ].
 
-infl-satisfied :+ [ ASPEC-OR-NEG1-FLAG na-or-+,
-    POSS1-FLAG na-or-+ ].
+infl-satisfied :+ [ POSS1-OR-POSS2-FLAG na-or-+,
+    ASPEC-OR-NEG1-OR-TENSE-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum ].
 
@@ -54,6 +54,12 @@ basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 basic-head-opt-subj-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+
+possessive-2 := possessive.
+
+possessor-2 := possessor & possessive-2.
+
+possessum-2 := possessum & possessive-2.
 
 ;;;;;;;;;;;;;;
 ;;; Features
@@ -117,46 +123,39 @@ noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-ite
                            SPR < #spr &
                                  [ LOCAL.CAT.HEAD +nd,
                                    OPT + ] > ],
-    INFLECTED.POSS1-FLAG - ].
+    INFLECTED.POSS1-OR-POSS2-FLAG - ].
 
 cn-lxm-noun-lex := noun-lex.
 
 pn-lxm-noun-lex := noun-lex.
 
 pron-lxm-1S-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 1Singular ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Singular ].
 
 pron-lxm-2S-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 2Singular ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Singular ].
 
 pron-lxm-3S-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 3Singular ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Singular ].
 
 pron-lxm-1PLI-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 1Plural_incl ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_incl ].
 
 pron-lxm-1PLE-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 1Plural_excl ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 1Plural_excl ].
 
 pron-lxm-2PL-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 2Plural ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 2Plural ].
 
 pron-lxm-3PL-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-                   CONT.HOOK.INDEX.PNG.PERNUM 3Plural ] ].
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3Plural ].
 
 ;;; Verbs
 
 verb-lex := non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.HEAD verb ].
 
-main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-rule-dtr &
+main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-or-tense-rule-dtr &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
                          VAL [ SPR < >,
                                SPEC < >,
@@ -185,10 +184,10 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 iv-lxm-verb-lex := intransitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
 
 tr-verb-verb-lex := transitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
 
 ;;; Auxiliaries
 
@@ -204,17 +203,46 @@ s-comp-aux := aux-lex & basic-one-arg &
                                  SPEC < > ],
                            HEAD verb ] ] > ].
 
-; To keep the semantically empty ones from spinning on
-; generation, require complement to be [AUX -].  The
-; FORM feature might be enough in the starter grammars,
-; but I don't want to rely on this.  Then again, [ AUX - ]
-; might not be true.
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
 
-s-comp-aux-no-pred := s-comp-aux & raise-sem-lex-item &
-  [ ARG-ST < [ LOCAL.CAT.HEAD.AUX - ] > ].
+s-comp-aux-with-pred := s-comp-aux & hcons-lex-item &
+  [ SYNSEM [ LOCAL.CONT.HCONS <! qeq &
+                                 [ HARG #harg,
+                                   LARG #larg ] !>,
+             LKEYS.KEYREL event-relation &
+                          [ ARG1 #harg ] ],
+    ARG-ST < [ LOCAL.CONT.HOOK.LTOP #larg ] > ].
 
-tense-aux-lex := s-comp-aux-no-pred &
+tense-aux-lex := s-comp-aux-with-pred &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE future,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+NEG1-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Habitual-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Habitual,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Iteration-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
+                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
+
+; Not inheriting from basic-verb-lex, so need to put in
+; event-relation by hand here.
+
+Reduplication-aux-lex := s-comp-aux-with-pred &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Reduplication,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
 ;;; Adjectives
@@ -242,15 +270,15 @@ attr-only-adj-lex := attr-adj-lex &
 
 ;;; Intermediate rule types
 
-aspec-or-neg1-rule-dtr := word-or-lexrule.
+aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
 poss1-lex-rule-super := lex-rule &
-  [ INFLECTED [ POSS1-FLAG +,
-                ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ],
+  [ INFLECTED [ POSS1-OR-POSS2-FLAG +,
+                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
     DTR noun-lex &
-        [ INFLECTED.ASPEC-OR-NEG1-FLAG #aspec-or-neg1 ] ].
+        [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -292,11 +320,57 @@ nonpossessive-lex-rule-1 := add-only-no-ccont-rule &
 
 nonposs-lex-rule := const-lex-rule & nonpossessive-lex-rule-1 & poss1-lex-rule-super.
 
+poss2-lex-rule-super := lex-rule &
+  [ INFLECTED [ POSS1-OR-POSS2-FLAG +,
+                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
+    DTR noun-lex &
+        [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ].
+
+possessum-lex-rule-2 := val-change-with-ccont-lex-rule &
+  [ SYNSEM.LOCAL.CAT [ HEAD noun,
+                       POSSESSUM possessum-2,
+                       VAL [ SPEC #spec,
+                             SUBJ #subj,
+                             COMPS #comps,
+                             SPR < [ LOCAL [ CAT [ VAL.SPR < >,
+                                                   HEAD +np ],
+                                             CONT.HOOK.INDEX #possessor ] ] > ] ],
+    C-CONT [ HOOK #hook &
+                  [ INDEX.COG-ST uniq-id ],
+             ICONS <!  !>,
+             HCONS <! qeq &
+                      [ HARG #harg,
+                        LARG #lbl ] !>,
+             RELS <! arg12-ev-relation &
+                     [ PRED "poss_rel",
+                       LBL #lbl,
+                       ARG1 #possessum,
+                       ARG2 #possessor ], quant-relation &
+                                          [ PRED "exist_q_rel",
+                                            ARG0 #possessum,
+                                            RSTR #harg ] !> ],
+    DTR.SYNSEM.LOCAL [ CAT [ HEAD.PRON -,
+                             VAL [ SPEC #spec,
+                                   SUBJ #subj,
+                                   COMPS #comps ] ],
+                       CONT.HOOK #hook &
+                                 [ INDEX #possessum,
+                                   LTOP #lbl ] ] ].
+
+poss2_rule-lex-rule := infl-lex-rule & poss2-lex-rule-super & possessum-lex-rule-2.
+
+nonpossessive-lex-rule-2 := add-only-no-ccont-rule &
+  [ SYNSEM.LOCAL.CAT [ HEAD noun &
+                            [ POSSESSOR nonpossessive ],
+                       POSSESSUM nonpossessive ] ].
+
+nonposs2_rule-lex-rule := const-lex-rule & nonpossessive-lex-rule-2 & poss2-lex-rule-super.
+
 neg1-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-FLAG +,
-                POSS1-FLAG #poss1 ],
-    DTR aspec-or-neg1-rule-dtr &
-        [ INFLECTED.POSS1-FLAG #poss1 ] ].
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+                POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
+    DTR aspec-or-neg1-or-tense-rule-dtr &
+        [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
 
 ; This adds negative semantics to the verb's
 ; RELS list.
@@ -319,23 +393,35 @@ neg1_rule-lex-rule := neg1-lex-rule-super &
                                      LTOP #larg ],
                          CAT.HEAD verb ] ] ].
 
-aspec-lex-rule-super := infl-lex-rule & val-change-with-ccont-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-FLAG +,
-                POSS1-FLAG #poss1 ],
-    DTR aspec-or-neg1-rule-dtr &
-        [ INFLECTED.POSS1-FLAG #poss1 ] ].
+tense-lex-rule-super := add-only-no-ccont-rule &
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+                POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
+    DTR aspec-or-neg1-or-tense-rule-dtr &
+        [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
 
-habitual-lex-rule := subj-rem-itr-op-lex-rule & aspec-lex-rule-super & local-change-only-lex-rule & same-cont-lex-rule &
+future_rule-lex-rule := infl-lex-rule & tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future ].
+
+non-future-lex-rule := const-lex-rule & tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE nonfuture ].
+
+aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+                POSS1-OR-POSS2-FLAG #poss1-or-poss2 ],
+    DTR aspec-or-neg1-or-tense-rule-dtr &
+        [ INFLECTED.POSS1-OR-POSS2-FLAG #poss1-or-poss2 ] ].
+
+habitual-lex-rule := aspec-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Habitual ].
 
-Iterative-lex-rule := subj-rem-itr-op-lex-rule & aspec-lex-rule-super & local-change-only-lex-rule & same-cont-lex-rule &
+Iterative-lex-rule := aspec-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Iterative ].
 
-subj-rem-itr-op-lex-rule := subj-change-only-lex-rule & no-ccont-lex-rule &
-  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ < >,
-                           COMPS < > ],
-    DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ < unexpressed >,
-                               COMPS < > ] ].
+Reduplication-lex-rule := aspec-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Reduplication ].
+
+;Constraint on MC used to be part of matrix.tdl
+;;it applies to all wo implementations, except for v2
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
@@ -352,6 +438,16 @@ head-spec-poss-phrase-1 := basic-head-spec-phrase-super & head-final &
                                            [ POSSESSOR nonpossessive ] ] ] ].
 
 head-adj-int-phrase :+ [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD.POSSESSOR nonpossessive ].
+
+head-spec-poss-phrase-2 := basic-head-spec-phrase-super & head-final &
+  [ C-CONT.HOOK #hook,
+    HEAD-DTR.SYNSEM.LOCAL [ CONT.HOOK #hook,
+                            CAT.POSSESSUM possessum-2 ],
+    NON-HEAD-DTR.SYNSEM [ OPT -,
+                          LOCAL.CAT [ VAL [ SPR < >,
+                                            COMPS < > ],
+                                      HEAD +nvjrpcmo &
+                                           [ POSSESSOR nonpossessive ] ] ] ].
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2

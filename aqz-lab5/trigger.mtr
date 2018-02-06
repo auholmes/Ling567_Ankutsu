@@ -1,6 +1,2 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Semantically Empty Lexical Entries
-
-kom_gr := arg0e_gtr &
-  [ CONTEXT.RELS <! [ ARG0.E.TENSE future ] !>,
-    FLAGS.TRIGGER "kom" ].
