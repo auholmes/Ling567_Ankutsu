@@ -54,8 +54,6 @@ nonfuture=on
     aspect1_supertype1_name=aspect
   aspect2_name=Iterative
     aspect2_supertype1_name=aspect
-  aspect3_name=Reduplication
-    aspect3_supertype1_name=aspect
 
 section=evidentials
 
@@ -225,15 +223,6 @@ section=lexicon
     aux5_compfeature1_value=nonfinite
     aux5_stem1_orth=ekwa
     aux5_stem1_pred=_ITER_v_rel
-  aux6_name=Reduplication
-  aux6_sem=add-pred
-    aux6_feat1_name=aspect
-    aux6_feat1_value=Reduplication
-    aux6_feat1_head=verb
-    aux6_compfeature1_name=form
-    aux6_compfeature1_value=nonfinite
-    aux6_stem1_orth=-ka
-    aux6_stem1_pred=_REDU_v_rel
 
 section=morphology
   noun-pc1_name=poss1
@@ -307,12 +296,6 @@ section=morphology
       verb-pc5_lrt2_feat1_head=verb
       verb-pc5_lrt2_lri1_inflecting=yes
       verb-pc5_lrt2_lri1_orth=ekwa
-    verb-pc5_lrt3_name=Reduplication
-      verb-pc5_lrt3_feat1_name=aspect
-      verb-pc5_lrt3_feat1_value=Reduplication
-      verb-pc5_lrt3_feat1_head=verb
-      verb-pc5_lrt3_lri1_inflecting=yes
-      verb-pc5_lrt3_lri1_orth=ka
 
 section=toolbox-import
 

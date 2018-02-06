@@ -134,7 +134,3 @@ eɾon := NEG1-aux-lex &
 ekwa := Iteration-aux-lex &
   [ STEM < "ekwa" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ITER_v_rel" ].
-
--ka := Reduplication-aux-lex &
-  [ STEM < "-ka" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_REDU_v_rel" ].

@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Tue Feb 06 02:52:09 UTC 2018
+;;;     Tue Feb 06 04:23:29 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Mon Feb  5 23:41:42 UTC 2018
 ;;;
@@ -108,7 +108,6 @@ future := tense.
 
 Habitual := aspect.
 Iterative := aspect.
-Reduplication := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -236,13 +235,6 @@ Habitual-aux-lex := s-comp-aux-with-pred &
 
 Iteration-aux-lex := s-comp-aux-with-pred &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Reduplication-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Reduplication,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
 ;;; Adjectives
@@ -416,9 +408,6 @@ habitual-lex-rule := aspec-lex-rule-super &
 
 Iterative-lex-rule := aspec-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Iterative ].
-
-Reduplication-lex-rule := aspec-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Reduplication ].
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
