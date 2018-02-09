@@ -191,7 +191,7 @@ I will eat fish
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en kɨp boja-ɾa 
 2S wood cut-HAB 
 you cut wood
@@ -200,7 +200,7 @@ you cut wood
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en-ɾa kɨp boja 
 2S-HAB wood cut 
 you cut wood
@@ -209,7 +209,7 @@ you cut wood
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: habitual
+Phenomena: tam
 en kɨp-ɾa boja 
 2S wood-HAB cut 
 you cut wood
@@ -218,25 +218,25 @@ you cut wood
 Source: author
 Judgment: g
 Vetted: f
-Phenomena: iteration
-te et-a ekwa
-3S sleep-THV ITER
+Phenomena: tam
+te et-a-ekwa
+3S sleep-THV-ITER
 He sleeps continuously
 
 # Aspect Example 5
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: iteration
-te ekwa et-a
-3S ITER sleep-THV
+Phenomena: tam
+te-ekwa et-a
+3S-ITER sleep-THV
 He sleeps continuously
 
 # Aspect Example 5
 Source: author
 Judgment: u
 Vetted: f
-Phenomena: iteration
+Phenomena: tam
 ekwa te et-a
 ITER 3S sleep-THV
 He sleeps continuously

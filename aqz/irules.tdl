@@ -18,16 +18,12 @@ future_rule-suffix :=
 future_rule-lex-rule.
 
 habitual-suffix :=
-%suffix (* ɾa)
+%suffix (* -ɾa)
 habitual-lex-rule.
 
 Iterative-suffix :=
-%suffix (* ekwa)
+%suffix (* -ekwa)
 Iterative-lex-rule.
-
-Reduplication-suffix :=
-%suffix (* ka)
-Reduplication-lex-rule.
 
 caus_rule-prefix :=
 %prefix (* mõ-)

@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Fri Feb 09 02:49:56 UTC 2018
+;;;     Fri Feb 09 03:23:37 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Thu Feb  8 01:10:07 UTC 2018
 ;;;
@@ -269,11 +269,11 @@ aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
 
 poss1-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-FLAG +,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
-                POSS2-FLAG #poss2 ],
+                POSS2-FLAG #poss2,
+                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
     DTR noncontiguous-n-lxm-noun-lex &
-        [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
-                      POSS2-FLAG #poss2 ] ] ].
+        [ INFLECTED [ POSS2-FLAG #poss2,
+                      ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -419,9 +419,6 @@ habitual-lex-rule := aspec-lex-rule-super &
 
 Iterative-lex-rule := aspec-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Iterative ].
-
-Reduplication-lex-rule := aspec-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Reduplication ].
 
 caus-lex-rule-super := infl-lex-rule & val-change-with-ccont-lex-rule &
   [ INFLECTED #infl,
