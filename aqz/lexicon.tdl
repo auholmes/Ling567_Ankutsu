@@ -101,6 +101,14 @@ et := iv-lxm-verb-lex &
   [ STEM < "et" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
+atʃo := iv-lxm-verb-lex &
+  [ STEM < "atʃo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bathe_v_rel" ].
+
+atʃo-a := iv-lxm-verb-lex &
+  [ STEM < "atʃo-a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bathe_v_rel" ].
+
 boja := tr-verb-verb-lex &
   [ STEM < "boja" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].

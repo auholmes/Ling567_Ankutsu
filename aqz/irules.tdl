@@ -28,3 +28,7 @@ Iterative-lex-rule.
 Reduplication-suffix :=
 %suffix (* ka)
 Reduplication-lex-rule.
+
+caus_rule-prefix :=
+%prefix (* mõ-)
+caus_rule-lex-rule.

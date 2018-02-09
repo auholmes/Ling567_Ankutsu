@@ -184,6 +184,10 @@ section=lexicon
     verb1_stem3_pred=_sleep_v_rel
     verb1_stem4_orth=et
     verb1_stem4_pred=_sleep_v_rel
+    verb1_stem5_orth=atʃo
+    verb1_stem5_pred=_bathe_v_rel
+    verb1_stem6_orth=atʃo-a
+    verb1_stem6_pred=_bathe_v_rel
   verb2_name=tr-verb
   verb2_valence=trans
     verb2_stem3_orth=boja
@@ -291,6 +295,16 @@ section=morphology
       verb-pc5_lrt3_feat1_head=verb
       verb-pc5_lrt3_lri1_inflecting=yes
       verb-pc5_lrt3_lri1_orth=ka
+  verb-pc6_name=caus
+  verb-pc6_order=prefix
+  verb-pc6_inputs=iverb
+    verb-pc6_lrt1_name=caus_rule
+      verb-pc6_lrt1_valchg1_operation=subj-add
+      verb-pc6_lrt1_valchg1_inputs=intrans
+      verb-pc6_lrt1_valchg1_argpos=pre
+      verb-pc6_lrt1_valchg1_argtype=np
+      verb-pc6_lrt1_lri1_inflecting=yes
+      verb-pc6_lrt1_lri1_orth=mõ-
 
 section=toolbox-import
 

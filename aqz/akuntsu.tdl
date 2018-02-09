@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Fri Feb 09 01:44:15 UTC 2018
+;;;     Fri Feb 09 02:49:56 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Thu Feb  8 01:10:07 UTC 2018
 ;;;
@@ -269,11 +269,11 @@ aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
 
 poss1-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-FLAG +,
-                POSS2-FLAG #poss2,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
+                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
+                POSS2-FLAG #poss2 ],
     DTR noncontiguous-n-lxm-noun-lex &
-        [ INFLECTED [ POSS2-FLAG #poss2,
-                      ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ] ].
+        [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
+                      POSS2-FLAG #poss2 ] ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -423,8 +423,48 @@ Iterative-lex-rule := aspec-lex-rule-super &
 Reduplication-lex-rule := aspec-lex-rule-super &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT Reduplication ].
 
+caus-lex-rule-super := infl-lex-rule & val-change-with-ccont-lex-rule &
+  [ INFLECTED #infl,
+    DTR intransitive-verb-lex &
+        [ INFLECTED #infl ] ].
+
+caus_rule-lex-rule := caus-lex-rule-super & causative-to-arg2-itr-op-lex-rule & same-non-local-lex-rule &
+  [ C-CONT.RELS <! [ PRED "causative_rel" ] !> ].
+
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
+
+causative-to-arg2-itr-op-lex-rule := scopal-rel-lex-rule & same-spr-lex-rule & same-spec-lex-rule &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ < [ LOCAL.CAT.VAL [ SPR < >,
+                                                    COMPS < > ] ] >,
+                           COMPS < [ LOCAL [ CONT.HOOK.INDEX #arg2,
+                                             CAT [ HEAD [ MOD #mod,
+                                                          KEYS #keys ],
+                                                   VAL #val ] ],
+                                     NON-LOCAL #nl ] > ],
+    DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ < [ LOCAL [ CONT.HOOK.INDEX #arg2,
+                                                CAT [ HEAD [ MOD #mod,
+                                                             KEYS #keys ],
+                                                      VAL #val ] ],
+                                        NON-LOCAL #nl ] >,
+                               COMPS < > ] ].
+
+scopal-rel-lex-rule := lex-rule &
+  [ C-CONT [ RELS <! event-relation &
+                     [ LBL #ltop,
+                       ARG0 #hidx,
+                       ARG1 #arg1,
+                       ARG2 #arg2,
+                       ARG3 #harg ] !>,
+             HOOK [ LTOP #ltop,
+                    INDEX #hidx,
+                    XARG #arg1 ],
+             HCONS <! qeq &
+                      [ HARG #harg,
+                        LARG #scoped ] !> ],
+    SYNSEM.LOCAL.CAT.VAL.SUBJ < [ LOCAL.CONT.HOOK.INDEX #arg1 ] >,
+    DTR.SYNSEM.LOCAL [ CAT.VAL.SUBJ < [ LOCAL.CONT.HOOK.INDEX #arg2 ] >,
+                       CONT.HOOK.LTOP #scoped ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
