@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Fri Feb 09 01:07:15 UTC 2018
+;;;     Fri Feb 09 01:44:15 UTC 2018
 ;;; based on Matrix customization system version of:
 ;;;     Thu Feb  8 01:10:07 UTC 2018
 ;;;
@@ -238,33 +238,6 @@ tense-aux-lex := s-comp-aux-with-pred &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE future,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
 
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-NEG1-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM negform ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Habitual-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Habitual,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Iteration-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Iterative,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
-; Not inheriting from basic-verb-lex, so need to put in
-; event-relation by hand here.
-
-Reduplication-aux-lex := s-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT Reduplication,
-                   CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM nonfinite ] ].
-
 ;;; Adjectives
 
 adj-lex := basic-intersective-adjective-lex.
@@ -296,11 +269,11 @@ aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
 
 poss1-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-FLAG +,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
-                POSS2-FLAG #poss2 ],
+                POSS2-FLAG #poss2,
+                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
     DTR noncontiguous-n-lxm-noun-lex &
-        [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
-                      POSS2-FLAG #poss2 ] ] ].
+        [ INFLECTED [ POSS2-FLAG #poss2,
+                      ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
