@@ -24,3 +24,7 @@ habitual-lex-rule.
 Iterative-suffix :=
 %suffix (* ekwa)
 Iterative-lex-rule.
+
+Reduplication-suffix :=
+%suffix (* ka)
+Reduplication-lex-rule.
