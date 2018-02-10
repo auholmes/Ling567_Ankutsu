@@ -2,9 +2,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of Akuntsu
 ;;; created at:
-;;;     Fri Feb 09 03:23:37 UTC 2018
+;;;     Sat Feb 10 14:30:29 UTC 2018
 ;;; based on Matrix customization system version of:
-;;;     Thu Feb  8 01:10:07 UTC 2018
+;;;     Fri Feb  9 05:22:46 UTC 2018
 ;;;
 ;;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,13 +23,13 @@ head :+ [ PRON bool,
     POSSESSOR poss,
     FORM form ].
 
-inflected :+ [ POSS2-FLAG luk,
-    ASPEC-OR-NEG1-OR-TENSE-FLAG luk,
-    POSS1-FLAG luk ].
+inflected :+ [ POSS1-FLAG luk,
+    POSS2-FLAG luk,
+    ASPEC-OR-NEG1-OR-THEME-FLAG luk ].
 
-infl-satisfied :+ [ POSS2-FLAG na-or-+,
-    ASPEC-OR-NEG1-OR-TENSE-FLAG na-or-+,
-    POSS1-FLAG na-or-+ ].
+infl-satisfied :+ [ POSS1-FLAG na-or-+,
+    POSS2-FLAG na-or-+,
+    ASPEC-OR-NEG1-OR-THEME-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum ].
 
@@ -175,7 +175,7 @@ continguous-n-lxm-noun-lex := noun-lex &
 verb-lex := non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.HEAD verb ].
 
-main-verb-lex := verb-lex & basic-verb-lex & aspec-or-neg1-or-tense-rule-dtr &
+main-verb-lex := verb-lex & basic-verb-lex & aspec-rule-dtr & neg1-or-theme-rule-dtr &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
                          VAL [ SPR < >,
                                SPEC < >,
@@ -204,10 +204,10 @@ transitive-verb-lex := main-verb-lex & transitive-lex-item &
                            HEAD noun ] ] > ].
 
 iv-lxm-verb-lex := intransitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-OR-THEME-FLAG - ].
 
 tr-verb-verb-lex := transitive-verb-lex &
-  [ INFLECTED.ASPEC-OR-NEG1-OR-TENSE-FLAG - ].
+  [ INFLECTED.ASPEC-OR-NEG1-OR-THEME-FLAG - ].
 
 ;;; Auxiliaries
 
@@ -263,17 +263,18 @@ attr-only-adj-lex := attr-adj-lex &
 
 ;;; Intermediate rule types
 
-aspec-or-neg1-or-tense-rule-dtr := word-or-lexrule.
+aspec-rule-dtr := word-or-lexrule.
+neg1-or-theme-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
 poss1-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS1-FLAG +,
-                POSS2-FLAG #poss2,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ],
+                ASPEC-OR-NEG1-OR-THEME-FLAG #aspec-or-neg1-or-theme,
+                POSS2-FLAG #poss2 ],
     DTR noncontiguous-n-lxm-noun-lex &
-        [ INFLECTED [ POSS2-FLAG #poss2,
-                      ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense ] ] ].
+        [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG #aspec-or-neg1-or-theme,
+                      POSS2-FLAG #poss2 ] ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
   [ SYNSEM.LOCAL.CAT [ HEAD noun,
@@ -317,10 +318,10 @@ nonposs-lex-rule := const-lex-rule & nonpossessive-lex-rule-1 & poss1-lex-rule-s
 
 poss2-lex-rule-super := lex-rule &
   [ INFLECTED [ POSS2-FLAG +,
-                ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
+                ASPEC-OR-NEG1-OR-THEME-FLAG #aspec-or-neg1-or-theme,
                 POSS1-FLAG #poss1 ],
     DTR continguous-n-lxm-noun-lex &
-        [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG #aspec-or-neg1-or-tense,
+        [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG #aspec-or-neg1-or-theme,
                       POSS1-FLAG #poss1 ] ] ].
 
 possessum-lex-rule-2 := val-change-with-ccont-lex-rule &
@@ -364,10 +365,10 @@ nonpossessive-lex-rule-2 := add-only-no-ccont-rule &
 nonposs2_rule-lex-rule := const-lex-rule & nonpossessive-lex-rule-2 & poss2-lex-rule-super.
 
 neg1-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
                 POSS2-FLAG #poss2,
                 POSS1-FLAG #poss1 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
+    DTR neg1-or-theme-rule-dtr &
         [ INFLECTED [ POSS2-FLAG #poss2,
                       POSS1-FLAG #poss1 ] ] ].
 
@@ -392,25 +393,11 @@ neg1_rule-lex-rule := neg1-lex-rule-super &
                                      LTOP #larg ],
                          CAT.HEAD verb ] ] ].
 
-tense-lex-rule-super := add-only-no-ccont-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
-                POSS2-FLAG #poss2,
-                POSS1-FLAG #poss1 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
-        [ INFLECTED [ POSS2-FLAG #poss2,
-                      POSS1-FLAG #poss1 ] ] ].
-
-future_rule-lex-rule := infl-lex-rule & tense-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future ].
-
-non-future-lex-rule := const-lex-rule & tense-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE nonfuture ].
-
 aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
-  [ INFLECTED [ ASPEC-OR-NEG1-OR-TENSE-FLAG +,
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
                 POSS2-FLAG #poss2,
                 POSS1-FLAG #poss1 ],
-    DTR aspec-or-neg1-or-tense-rule-dtr &
+    DTR aspec-rule-dtr &
         [ INFLECTED [ POSS2-FLAG #poss2,
                       POSS1-FLAG #poss1 ] ] ].
 
@@ -427,6 +414,18 @@ caus-lex-rule-super := infl-lex-rule & val-change-with-ccont-lex-rule &
 
 caus_rule-lex-rule := caus-lex-rule-super & causative-to-arg2-itr-op-lex-rule & same-non-local-lex-rule &
   [ C-CONT.RELS <! [ PRED "causative_rel" ] !> ].
+
+theme-lex-rule-super := add-only-no-ccont-rule & aspec-rule-dtr &
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
+                POSS2-FLAG #poss2,
+                POSS1-FLAG #poss1 ],
+    DTR neg1-or-theme-rule-dtr &
+        [ INFLECTED [ POSS2-FLAG #poss2,
+                      POSS1-FLAG #poss1 ] ] ].
+
+thematic_vowel-lex-rule := infl-lex-rule & theme-lex-rule-super.
+
+non-thematic-lex-rule := const-lex-rule & theme-lex-rule-super.
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2

@@ -13,10 +13,6 @@ neg1_rule-suffix :=
 %suffix (* -eɾom)
 neg1_rule-lex-rule.
 
-future_rule-suffix :=
-%suffix (* kom)
-future_rule-lex-rule.
-
 habitual-suffix :=
 %suffix (* -ɾa)
 habitual-lex-rule.
@@ -28,3 +24,7 @@ Iterative-lex-rule.
 caus_rule-prefix :=
 %prefix (* mõ-)
 caus_rule-lex-rule.
+
+thematic_vowel-suffix :=
+%suffix (* -a)
+thematic_vowel-lex-rule.

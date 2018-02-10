@@ -33,9 +33,33 @@ jãj := noncontiguous-n-lxm-noun-lex &
   [ STEM < "jãj" >,
     SYNSEM.LKEYS.KEYREL.PRED "_tooth_n_rel" ].
 
+apaɾapia := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "apaɾapia" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_non_Indian_n_rel" ].
+
+nako := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "nako" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_man_n_rel" ].
+
+õjpe := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "õjpe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_tobacco_n_rel" ].
+
 Tʃaɾuj := pn-lxm-noun-lex &
   [ STEM < "Tʃaɾuj" >,
     SYNSEM.LKEYS.KEYREL.PRED "_Tʃaɾuj_n_rel" ].
+
+Kwatin := pn-lxm-noun-lex &
+  [ STEM < "Kwatin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Kwatin_n_rel" ].
+
+Babakop := pn-lxm-noun-lex &
+  [ STEM < "Babakop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Babakop_n_rel" ].
+
+Akũtʃu := pn-lxm-noun-lex &
+  [ STEM < "Akũtʃu" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Akuntsu_n_rel" ].
 
 on := pron-lxm-1S-noun-lex &
   [ STEM < "on" >,
@@ -77,6 +101,26 @@ po := continguous-n-lxm-noun-lex &
   [ STEM < "po" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hand_n_rel" ].
 
+tojẽpit := continguous-n-lxm-noun-lex &
+  [ STEM < "tojẽpit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_granddaughter_n_rel" ].
+
+mepit := continguous-n-lxm-noun-lex &
+  [ STEM < "mepit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_daughter_n_rel" ].
+
+ape := continguous-n-lxm-noun-lex &
+  [ STEM < "ape" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_path_n_rel" ].
+
+ike := continguous-n-lxm-noun-lex &
+  [ STEM < "ike" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_older_brother_n_rel" ].
+
+kojẽ := continguous-n-lxm-noun-lex &
+  [ STEM < "kojẽ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_brother_in_law_n_rel" ].
+
 ;;; Adjectives
 
 niŋ := adj-lxm-adj-lex &
@@ -87,15 +131,23 @@ peɾek := adj-lxm-adj-lex &
   [ STEM < "peɾek" >,
     SYNSEM.LKEYS.KEYREL.PRED "_long_a_rel" ].
 
+tʃokin := adj-lxm-adj-lex &
+  [ STEM < "tʃokin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
+
+petkop := adj-lxm-adj-lex &
+  [ STEM < "petkop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_alone_a_rel" ].
+
+tʃokeee := adj-lxm-adj-lex &
+  [ STEM < "tʃokeee" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
+
 ;;; Verbs
 
 ka := iv-lxm-verb-lex &
   [ STEM < "ka" >,
     SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
-
-et-a := iv-lxm-verb-lex &
-  [ STEM < "et-a" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 et := iv-lxm-verb-lex &
   [ STEM < "et" >,
@@ -105,21 +157,25 @@ atʃo := iv-lxm-verb-lex &
   [ STEM < "atʃo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bathe_v_rel" ].
 
-atʃo-a := iv-lxm-verb-lex &
-  [ STEM < "atʃo-a" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_bathe_v_rel" ].
+a := iv-lxm-verb-lex &
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_exist_v_rel" ].
+
+dow := iv-lxm-verb-lex &
+  [ STEM < "dow" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_shoot_v_rel" ].
+
+hĩ := iv-lxm-verb-lex &
+  [ STEM < "hĩ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
 boja := tr-verb-verb-lex &
   [ STEM < "boja" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
-õ-a := tr-verb-verb-lex &
-  [ STEM < "õ-a" >,
+õ := tr-verb-verb-lex &
+  [ STEM < "õ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
-
-ko-a := tr-verb-verb-lex &
-  [ STEM < "ko-a" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
 ko := tr-verb-verb-lex &
   [ STEM < "ko" >,
@@ -128,6 +184,10 @@ ko := tr-verb-verb-lex &
 tʃoga := tr-verb-verb-lex &
   [ STEM < "tʃoga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bite_v_rel" ].
+
+tʃop := tr-verb-verb-lex &
+  [ STEM < "tʃop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
 
 ;;; Auxiliaries
 
