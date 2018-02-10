@@ -1,0 +1,69 @@
+Ling 576 - Lab 5
+Aycha Edwards and Audrey HolmesLanguage: AkuntsuWrite-up by Aycha Edwards
+
+Akuntsu distinguishes between contiguous and non-contiguous possessive relationships. In both cases, the possessor appears before the possessum, and a possession-marking prefix is attached to the possessum. For non-contiguous possessives, the prefix is t-, and for contiguous possessives, the prefix is ø-.
+The class distinction for nouns that use contiguous versus non-contiguous possessives in Akuntsu is directly correlated to noun classes that identify the noun with the property of inalienable possession or alienable possession. In Akuntsu, nouns can be classified under Kinship, Parts of a Whole, Human Possessions, and Nature among others. While, the first two categories fall under the inalienable possession property, the last two categories fall under the alienable possession property. These are demonstrated below:
+
+IGT examples with non-contiguous possessive marker “t-“ which is under the inalienable possession feature because it falls under the Nature category:
+
+en o t-kit ko
+2s I POSS-seed eat
+you eat my seed
+	
+*en o kit-t ko
+2s I seed-POSS eat
+you eat my seed
+
+*en o ø-kit ko
+2s I-POSS seed eat
+you eat my seed
+
+IGT examples with contiguous possessive marker “ø- “ which is under the alienable possession feature because it falls under the Parts of a Whole category:
+
+tawtʃe e ø-po tʃoga
+the peccary you POSS-hand bit
+the peccary bit your hand
+
+*tawtʃe e t-po tʃoga
+the peccary you POSS-hand bit
+the peccary bit your hand
+
+*tawtʃe ø-po e tʃoga
+the peccary POSS-hand you bit
+the peccary bit your hand
+
+We created two noun lexeme types in the lexicon for possessives: contiguous and non-contiguous.In the morphology, there are four lexical rules. The first two are possessive and non possessive for contiguous nouns as the possessum. The possessive rule adds the affix. The remaining two lexical rules are for non-contiguous nouns as the possessum. See below:
+
+poss1_rule-prefix :=
+%prefix (* t-)
+poss1_rule-lex-rule.
+
+poss2_rule-prefix :=
+%prefix (* ø-)
+poss2_rule-lex-rule.
+
+
+Ambiguity:
+
+The information on possessives was updated and that fixed most of the ambiguity. There is still some ambiguity due the combination of possessives and asyndetic coordination. The nature of asyndetic coordination is also ambiguous in its own right.
+
+We beat back some of the ambiguity by distinguishing between the two noun classes. Previously, nouns could go through two identical non possessive lexical rules. Now they can only undergo one based on noun type.
+
+Baseline Ambiguity: Average of 7.47 parses
+Updated Ambiguity: Average of 1.75 parses
+
+Coverage and overgenration:
+
+The baseline coverage was 71.4% and overgeneration was 71.9%. The overgeneration was due to the two possessive cases from Lab 4. 
+
+Current coverage at 81%, overgeneration at 10.7%. Possessives were updated on the morphology in the grammar matrix and adjectives and iterative aspect were fixed so they are parsing now.
+
+
+
+Information on the test corpus:
+
+We have collected our test corpus from “A Grammar of Akuntsu, a Tupian Language”, a dissertation by Carolina Coelho Aragon, December 2014. The test corpus was extracted from Appendix B, pages 316 through 319.
+
+The test corpus has a total of 17 sentences which were extracted from a short narrative where the narrator tells a personal story about his past and which gives some examples of kinship terminology. 
+
+The test corpus sentences have the same IGT format as the examples illustrated above. The data was collected via audio recording and later transcribed in IPA.
