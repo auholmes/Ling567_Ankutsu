@@ -1,5 +1,7 @@
 Ling 576 - Lab 5
-Aycha Edwards and Audrey HolmesLanguage: AkuntsuWrite-up by Aycha Edwards
+Aycha Edwards and Audrey Holmes
+Language: Akuntsu
+Write-up by Aycha Edwards
 
 Akuntsu distinguishes between contiguous and non-contiguous possessive relationships. In both cases, the possessor appears before the possessum, and a possession-marking prefix is attached to the possessum. For non-contiguous possessives, the prefix is t-, and for contiguous possessives, the prefix is ø-.
 The class distinction for nouns that use contiguous versus non-contiguous possessives in Akuntsu is directly correlated to noun classes that identify the noun with the property of inalienable possession or alienable possession. In Akuntsu, nouns can be classified under Kinship, Parts of a Whole, Human Possessions, and Nature among others. While, the first two categories fall under the inalienable possession property, the last two categories fall under the alienable possession property. These are demonstrated below:
@@ -42,6 +44,7 @@ poss2_rule-prefix :=
 %prefix (* ø-)
 poss2_rule-lex-rule.
 
+Akuntsu does not have adverbs.
 
 Ambiguity:
 
@@ -54,7 +57,7 @@ Updated Ambiguity: Average of 1.75 parses
 
 Coverage and overgenration:
 
-The baseline coverage was 71.4% and overgeneration was 71.9%. The overgeneration was due to the two possessive cases from Lab 4. 
+The baseline coverage was 71.4% and overgeneration was 17.9%. The overgeneration was due to the two possessive cases from Lab 4. 
 
 Current coverage at 81%, overgeneration at 10.7%. Possessives were updated on the morphology in the grammar matrix and adjectives and iterative aspect were fixed so they are parsing now.
 
