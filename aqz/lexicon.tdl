@@ -135,7 +135,7 @@ tʃokin := adj-lxm-adj-lex &
   [ STEM < "tʃokin" >,
     SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
 
-petkop := adj-lxm-adj-lex &
+petkop := pred-adj-lex &
   [ STEM < "petkop" >,
     SYNSEM.LKEYS.KEYREL.PRED "_alone_a_rel" ].
 

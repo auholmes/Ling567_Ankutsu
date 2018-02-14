@@ -288,10 +288,11 @@ attr-adj-lex := adj-lex & intersective-mod-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
 					      VAL.SPR cons ] ] > ].
 
-pred-adj-lex := adj-lex & intersective-mod-lex &
-[ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+pred-adj-lex := attr-adj-lex &
+[ SYNSEM [ LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
                                              VAL [ SUBJ < [ LOCAL.CONT.HOOK.INDEX #index ] > ]]] >,
-                 CONT.HOOK.XARG #index ] ].
+                   CONT [ HOOK.XARG #index,
+			RELS.LIST.FIRST.ARG1 #index ]]] ].
 
 attr-only-adj-lex := attr-adj-lex &
   [ SYNSEM.LOCAL.CAT [ HEAD.PRD -,
