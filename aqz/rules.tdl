@@ -29,7 +29,7 @@ s1-bottom-coord := s1-bottom-coord-rule.
 
 wh-ques := wh-ques-phrase.
 
-basic-head-filler := basic-head-filler-phrase.
+;basic-head-filler := basic-head-filler-phrase.
 
 extracted-comp := extracted-comp-phrase.
 
