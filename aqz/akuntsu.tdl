@@ -51,28 +51,6 @@ basic-bare-np-phrase :+ [ SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
     HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
                                 POSSESSUM #possessum ] ].
 
-basic-head-filler-phrase :+
-   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
-
-wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & 
-		  head-final &
-   [ SYNSEM.LOCAL.CAT [ MC bool,
-			VAL #val,
-			HEAD verb & [ FORM finite ] ],
-     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
-				 VAL #val & [ SUBJ < >,
-					      COMPS < > ] ],
-     NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
-			
-
-extracted-comp-phrase := basic-extracted-comp-phrase &
-  [ SYNSEM.LOCAL.CAT.HEAD verb,
-    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
-
-extracted-subj-phrase := basic-extracted-subj-phrase &
-  [ SYNSEM.LOCAL.CAT.HEAD verb,
-    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
-
 possessive-1 := possessive.
 
 possessor-1 := possessor & possessive-1.
@@ -537,6 +515,28 @@ head-spec-poss-phrase-2 := basic-head-spec-phrase-super & head-final &
 
 bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+
+basic-head-filler-phrase :+
+   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
+
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause & 
+		  head-final &
+   [ SYNSEM.LOCAL.CAT [ MC bool,
+			VAL #val,
+			HEAD verb & [ FORM finite ] ],
+     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+				 VAL #val & [ SUBJ < >,
+					      COMPS < > ] ],
+     NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
+			
+
+extracted-comp-phrase := basic-extracted-comp-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
+
+extracted-subj-phrase := basic-extracted-subj-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination

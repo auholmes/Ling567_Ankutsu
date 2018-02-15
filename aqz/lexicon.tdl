@@ -69,6 +69,10 @@ o := pron-lxm-1S-noun-lex &
   [ STEM < "o" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
 
+oɾẽ := pron-lxm-1S-noun-lex &
+  [ STEM < "oɾẽ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
 en := pron-lxm-2S-noun-lex &
   [ STEM < "en" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
@@ -165,8 +169,8 @@ dow := iv-lxm-verb-lex &
   [ STEM < "dow" >,
     SYNSEM.LKEYS.KEYREL.PRED "_shoot_v_rel" ].
 
-hĩ := iv-lxm-verb-lex &
-  [ STEM < "hĩ" >,
+ihĩ-ihĩ := iv-lxm-verb-lex &
+  [ STEM < "ihĩ-ihĩ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
 boja := tr-verb-verb-lex &
