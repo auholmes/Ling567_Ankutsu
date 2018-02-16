@@ -1,0 +1,193 @@
+Lab 6
+Language: Akuntsu
+Audrey Holmes and Aycha Edwards
+
+###########################################################
+# PERFORMANCE
+###########################################################
+
+Baseline Coverage: 77.3%
+Baseline Overgeneration: 10.3%
+Baseline Ambiguity: 1.65
+
+Updated Coverage: 86.4% 
+Updated Overgeneration: 10.3%
+Updated Ambiguity: 1.74
+
+############################################################
+# LANGUAGE AT A GLANCE
+############################################################
+
+Word Order: SOV
+Coordination: Asyndetic
+Possession: distinguishes between alienable/inalienable
+Tenses: Future and non-future
+
+############################################################
+# PHENOMENA
+############################################################
+
+Matrix Yes-No Questions:
+
+In Akuntsu, matrix yes-no questions are marked by intonation only.
+We checked that the semantics were working. The INDEX.SF value is prop-or-ques, indicating that a sentence can be declarative or interrogative.
+ 
+Embedded Complement Clauses:
+
+There is no evidence of embedded clauses in Akuntsu. The example we found that was closest to being an embedded clause was hard to interpret because of the "tell sound see", but Olga suggested that it was most likely reported speech as opposed to an embedded clause.
+
+ẽ mepit at-a maj kwak tʃop-a awtʃe
+DEM son/daughter of woman get-THV tell sound see-THV Indian
+That caught the daughter, Indian tells
+
+WH-Questions:
+
+WH-pronouns occur at the beginning of the sentence in a way that is very similar to English. Here are some examples:
+
+# Wh question Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: wh question
+aɾop kit ko
+who seed eat
+Who ate the seed?
+
+# Wh question Example 6
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: wh question
+kit ko aɾop
+seed eat who
+Who ate the seed?
+
+We created a wh-pronoun-noun-lex supertype and lexical entries for the WH-pronouns:
+
+wh-pronoun-noun-lex := norm-hook-lex-item & basic-icons-lex-item & 
+  [ SYNSEM [ LOCAL [ CAT [ HEAD noun,
+			   VAL [ SPR < >,
+				 SUBJ < >,
+				 COMPS < >,
+				 SPEC < > ] ],
+		     CONT [ HOOK.INDEX.PNG.PER 3rd,
+	                    RELS <! [ LBL #larg,
+				       ARG0 #ind & ref-ind ],
+				  [ PRED "wh_q_rel",
+				    ARG0 #ind,
+				    RSTR #harg ] !>,
+			    HCONS <! [ HARG #harg,
+				        LARG #larg ] !> ] ],
+	     NON-LOCAL.QUE <! #ind !> ] ].
+
+taɾa := wh-pronoun-noun-lex &
+  [ STEM < "taɾa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+aɾop := wh-pronoun-noun-lex &
+  [ STEM < "aɾop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
+
+Then we created phrase structure rules:
+
+basic-head-filler-phrase :+
+   [ ARGS < [ SYNSEM.LOCAL.COORD - ], [ SYNSEM.LOCAL.COORD - ] > ].
+
+The wh-ques-phrase specifies that the head daughter's VAL is SUBJ < > and COMPS < >. It is indexed with the mothers's VAL feature.
+
+wh-ques-phrase := basic-head-filler-phrase & interrogative-clause &
+                  head-final &
+   [ SYNSEM.LOCAL.CAT [ MC bool,
+                        VAL #val,
+                        HEAD verb & [ FORM finite ] ],
+     HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+                                 VAL #val & [ SUBJ < >,
+                                              COMPS < > ] ],
+     NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE <! ref-ind !> ].
+
+extracted-comp-phrase := basic-extracted-comp-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ cons ].
+
+extracted-subj-phrase := basic-extracted-subj-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+ 
+############################################################
+# OTHER FIXES
+############################################################
+
+Previously we had modeled the thematic vowel -a as part of the lexical entries. This week, we created a lexical rule to add -a as a suffix. Thus, we were able to remove several redundant lexical entries.
+
+theme-lex-rule-super := add-only-no-ccont-rule & aspec-rule-dtr &
+  [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
+                POSS2-FLAG #poss2,
+                POSS1-FLAG #poss1 ],
+    DTR neg1-or-theme-rule-dtr &
+        [ INFLECTED [ POSS2-FLAG #poss2,
+                      POSS1-FLAG #poss1 ] ] ].
+
+thematic_vowel-lex-rule := infl-lex-rule & theme-lex-rule-super.
+
+non-thematic-lex-rule := const-lex-rule & theme-lex-rule-super.
+
+Additionally, we modified the aspect-marking lexical rules to accept the output of the thematic vowel lexical rule. This accounted for the order in which suffixes should be added.
+
+############################################################
+# TEST CORPUS
+############################################################
+
+We had several sentence from our test corpus parse, mainly due to asyndetic coordination. Unfortunately, the semantics were not always what we were hoping for.
+
+Here is the first sentence we tried to get working. Initially we thought it was an example of predicative adjectives. However, the grammar we are working with says that the language is [NP + ADJ], not [ADJ + NP]. Thus, we concluded that the following example is actually just a NP.
+
+tʃokin petkop Tʃaɾuj
+small alone Tʃaɾuj
+Tʃaruj was small, alone
+
+However, we still modeled adjectives as stand-alone predicates. We added the following examples to our testsuite.
+
+# Predicative Adjectives Example 2
+Source: author
+Judgment: g
+Vetted: f
+Phenomena: adj
+tawtʃe tʃokin
+peccary small
+The peccary is small
+
+# Predicative Adjectives Example 2
+Source: author
+Judgment: u
+Vetted: f
+Phenomena: adj
+tʃokin tawtʃe
+small peccary
+The peccary is small
+
+We created a pred-adj-lex type that indexed the SUBJ with the XARG and ARG1.
+
+pred-adj-lex := attr-adj-lex &
+[ SYNSEM [ LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+                                             VAL [ SUBJ < [ LOCAL.CONT.HOOK.INDEX #index ] > ]]] >,
+                   CONT [ HOOK.XARG #index,
+                        RELS.LIST.FIRST.ARG1 #index ]]] ].
+
+We also modified the HEAD value of the root condition to accept adjectives:
+
+root := sign &
+  [ SYNSEM [ NON-LOCAL non-local-none,
+             LOCAL [ COORD -,
+                     CAT [ VAL [ SUBJ < >,
+                                 COMPS < > ],
+                           MC +,
+                           HEAD +vj &
+                                [ FORM finite ] ] ] ] ].
+
+Another sentence we were worked with features reduplication in the subject:
+
+Akũtʃu Akũtʃu Akũtʃu o ø-ike dow
+Akuntsú Akuntsú Akuntsú 1s=POSS-older.brother IDEO
+Many Akuntsú and my older brother died
+
+The sentence parses because we have asyndetic coordination, which in this case is very similar to reduplication. Also because of the asyndetic coordination, we get 145 parses for this sentence.
