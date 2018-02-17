@@ -1,0 +1,6 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+nonposs-lex := nonposs-lex-rule.
+
+nonposs2_rule-lex := nonposs2_rule-lex-rule.
+
+non-thematic-lex := non-thematic-lex-rule.
