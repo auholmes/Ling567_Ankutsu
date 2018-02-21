@@ -37,7 +37,7 @@ COG-ST : COG-ST
   * <> *
 
 
-PNG.PERNUM : PNG.PERNUM
+PNG.PERNUM : PERNUM
   3Plural <> 3Plural
   2Plural <> 2Plural
   1Plural_excl <> 1Plural_excl
@@ -53,19 +53,19 @@ PNG.PERNUM : PNG.PERNUM
   Singular <> Singular
   * <> *
 
-PNG.GEND : PNG.GEND
-  * <> *
+;PNG.GEND : GEND
+;  * <> *
 
-E.TENSE : E.TENSE
+E.TENSE : TENSE
   nonfuture <> nonfuture
   future <> future
   * <> *
 
-E.ASPECT : E.ASPECT
+E.ASPECT : ASPECT
   Habitual <> Habitual
   Iterative <> Iterative
   Reduplication <> Reduplication
   * <> *
 
-E.MOOD : E.MOOD
+E.MOOD : MOOD
   * <> *
