@@ -9,7 +9,6 @@ non_event      <> p
 semarg         << u
 
 SPECI : SPECI
-  * <> *
 
 SF : SF
   prop <> prop
@@ -17,7 +16,6 @@ SF : SF
   prop-or-ques >> prop-or-ques
   prop << prop-or-ques
   comm <> comm
-  * <> *
 
 COG-ST : COG-ST
   type-id <> type-id
@@ -34,24 +32,28 @@ COG-ST : COG-ST
   fam-or-less <> fam-or-less
   uniq-or-more <> uniq-or-more
   activ-or-less <> activ-or-less
-  * <> *
 
-
-PNG.PERNUM : PERNUM
-  3Plural <> 3Plural
-  2Plural <> 2Plural
-  1Plural_excl <> 1Plural_excl
-  1Plural_incl <> 1Plural_incl
-  1Plural <> 1Plural
-  3Singular <> 3Singular
-  2Singular <> 2Singular
-  1Singular <> 1Singular
-  3rd <> 3rd
-  2nd <> 2nd
-  1st <> 1st
-  Plural <> Plural
-  Singular <> Singular
-  * <> *
+PNG.PERNUM : PER NUM
+  3Plural <> 3rd pl
+  2Plural <> 2nd pl
+  1Plural_excl <> 1st pl
+  1Plural_incl <> 1st pl
+  1Plural <> 1st pl
+  3Singular <> 3rd sg
+  2Singular <> 2nd sg
+  1Singular <> 1st sg
+  3rd <> 3rd !
+  3rd <> 3rd *
+  2nd <> 2nd !
+  2nd <> 2nd *
+  1st <> 1st !
+  1st <> 1st *
+  Plural <> ! pl
+  Plural <> * pl
+  Singular <> ! sg
+  Singular <> * sg
+  * >> ! !
+  ! << * *
 
 ;PNG.GEND : GEND
 ;  * <> *
@@ -59,13 +61,12 @@ PNG.PERNUM : PERNUM
 E.TENSE : TENSE
   nonfuture <> nonfuture
   future <> future
-  * <> *
 
 E.ASPECT : ASPECT
   Habitual <> Habitual
   Iterative <> Iterative
   Reduplication <> Reduplication
-  * <> *
 
 E.MOOD : MOOD
-  * <> *
+  * >> no-mood
+  no-mood << [e]
