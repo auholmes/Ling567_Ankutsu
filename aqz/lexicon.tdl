@@ -21,6 +21,10 @@ potʃek := noncontiguous-n-lxm-noun-lex &
   [ STEM < "potʃek" >,
     SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
 
+tato := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "tato" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
+
 peɾo := noncontiguous-n-lxm-noun-lex &
   [ STEM < "peɾo" >,
     SYNSEM.LKEYS.KEYREL.PRED "_macaw_n_rel" ].
