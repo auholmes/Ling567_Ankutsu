@@ -298,14 +298,16 @@ poss1-lex-rule-super := lex-rule &
                       POSS2-FLAG #poss2 ] ] ].
 
 possessum-lex-rule-1 := val-change-with-ccont-lex-rule &
-  [ SYNSEM.LOCAL.CAT [ HEAD noun,
+  [ SYNSEM [ LOCAL.CAT [ HEAD noun,
                        POSSESSUM possessum-1,
                        VAL [ SPEC #spec,
                              SUBJ #subj,
                              COMPS #comps,
                              SPR < [ LOCAL [ CAT [ VAL.SPR < >,
                                                    HEAD +np ],
-                                             CONT.HOOK.INDEX #possessor ] ] > ] ],
+                                             CONT.HOOK.INDEX #possessor ],
+				     NON-LOCAL #nl ] > ] ],
+	    NON-LOCAL #nl ],
     C-CONT [ HOOK #hook &
                   [ INDEX.COG-ST uniq-id ],
              ICONS <!  !>,
@@ -346,14 +348,16 @@ poss2-lex-rule-super := lex-rule &
                       POSS1-FLAG #poss1 ] ] ].
 
 possessum-lex-rule-2 := val-change-with-ccont-lex-rule &
-  [ SYNSEM.LOCAL.CAT [ HEAD noun,
+  [ SYNSEM [ LOCAL.CAT [ HEAD noun,
                        POSSESSUM possessum-2,
                        VAL [ SPEC #spec,
                              SUBJ #subj,
                              COMPS #comps,
                              SPR < [ LOCAL [ CAT [ VAL.SPR < >,
                                                    HEAD +np ],
-                                             CONT.HOOK.INDEX #possessor ] ] > ] ],
+                                             CONT.HOOK.INDEX #possessor ],
+					NON-LOCAL #nl ] > ] ],
+		NON-LOCAL #nl ],
     C-CONT [ HOOK #hook &
                   [ INDEX.COG-ST uniq-id ],
              ICONS <!  !>,
