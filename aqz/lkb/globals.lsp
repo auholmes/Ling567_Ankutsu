@@ -138,6 +138,7 @@
 ; prefer results with MRS subsumed by the input
 ; but if none exist then output all complete generated results
 (setf *bypass-equality-check* :filter)
+(setf *translate-grid* '(:aqz :eng :sje))
 
 ; output all complete generated results
 ; (setf *bypass-equality-check* t)

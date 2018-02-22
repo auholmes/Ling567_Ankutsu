@@ -119,6 +119,7 @@ future := tense.
 Habitual := aspect.
 Iterative := aspect.
 Reduplication := aspect.
+no-aspect := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types

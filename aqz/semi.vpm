@@ -9,6 +9,7 @@ non_event      <> p
 semarg         << u
 
 SPECI : SPECI
+* <> *
 
 SF : SF
   prop <> prop
@@ -16,6 +17,7 @@ SF : SF
   prop-or-ques >> prop-or-ques
   prop << prop-or-ques
   comm <> comm
+  * <> *
 
 COG-ST : COG-ST
   type-id <> type-id
@@ -32,6 +34,7 @@ COG-ST : COG-ST
   fam-or-less <> fam-or-less
   uniq-or-more <> uniq-or-more
   activ-or-less <> activ-or-less
+  * <> *
 
 PNG.PERNUM : PER NUM
   3Plural <> 3rd pl
@@ -54,6 +57,7 @@ PNG.PERNUM : PER NUM
   Singular <> * sg
   * >> ! !
   ! << * *
+  * <> *
 
 ;PNG.GEND : GEND
 ;  * <> *
@@ -66,7 +70,8 @@ E.ASPECT : ASPECT
   Habitual <> Habitual
   Iterative <> Iterative
   Reduplication <> Reduplication
+  * >> no-aspect
+  no-aspect << [e]
 
 E.MOOD : MOOD
-  * >> no-mood
-  no-mood << [e]
+  * <> *
