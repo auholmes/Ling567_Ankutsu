@@ -37,20 +37,20 @@ COG-ST : COG-ST
   * <> *
 
 PNG.PERNUM : PER NUM
-  3Plural <> 3rd pl
-  2Plural <> 2nd pl
-  1Plural_excl <> 1st pl
-  1Plural_incl <> 1st pl
-  1Plural <> 1st pl
-  3Singular <> 3rd sg
-  2Singular <> 2nd sg
-  1Singular <> 1st sg
-  3rd <> 3rd !
-  3rd <> 3rd *
-  2nd <> 2nd !
-  2nd <> 2nd *
-  1st <> 1st !
-  1st <> 1st *
+  3Plural <> third pl
+  2Plural <> second pl
+  1Plural_excl <> first pl
+  1Plural_incl <> first pl
+  1Plural <> first pl
+  3Singular <> third sg
+  2Singular <> second sg
+  1Singular <> first sg
+  3rd <> third !
+  3rd <> third *
+  2nd <> second !
+  2nd <> second *
+  1st <> first !
+  1st <> first *
   Plural <> ! pl
   Plural <> * pl
   Singular <> ! sg
