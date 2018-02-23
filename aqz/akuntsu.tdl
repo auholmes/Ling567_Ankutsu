@@ -101,8 +101,8 @@ subj-head-phrase := decl-head-subj-phrase & head-final &
   [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
   
 subj-head-phrase-2 := decl-head-subj-phrase & head-final &
-  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd, 
-                                    COMPS.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ] ].
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd, 
+                                    COMPS.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
 ;;; Form
 
 form := *top*.
