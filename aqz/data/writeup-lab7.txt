@@ -98,10 +98,11 @@ E.ASPECT : ASPECT
   Habitual <> Habitual
   Iterative <> Iterative
   Reduplication <> Reduplication
+  * >> no-aspect
+  no-aspect << [e]
 
 E.MOOD : MOOD
-  * >> no-mood
-  no-mood << [e]
+  * <> *
 
 ############################################################
 # MT
