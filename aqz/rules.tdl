@@ -5,6 +5,8 @@ comp-head := comp-head-phrase.
 
 subj-head := subj-head-phrase.
 
+subj-head-2 := subj-head-phrase-2.
+
 head-spec-poss-1 := head-spec-poss-phrase-1.
 
 head-spec-poss-2 := head-spec-poss-phrase-2.
