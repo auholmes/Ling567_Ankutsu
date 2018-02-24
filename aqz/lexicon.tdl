@@ -169,7 +169,7 @@ a := iv-lxm-verb-lex &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_v_rel" ].
 
-dow := iv-lxm-verb-lex &
+dow := tr-verb-verb-lex &
   [ STEM < "dow" >,
     SYNSEM.LKEYS.KEYREL.PRED "_shoot_v_rel" ].
 
