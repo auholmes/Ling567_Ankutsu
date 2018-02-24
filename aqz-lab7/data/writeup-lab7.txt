@@ -1,0 +1,129 @@
+Lab 7
+Language: Akuntsu
+Aycha Edwards and Audrey Holmes
+
+###########################################################
+# PERFORMANCE
+###########################################################
+
+Test Suite:
+
+Baseline Coverage: 86.4%
+Baseline Overgeneration: 10.3%
+Baseline Ambiguity: 1.74
+
+Updated Coverage: 86.4% 
+Updated Overgeneration: 10.3%
+Updated Ambiguity: 2.47
+
+Test Corpus:
+
+Baseline Coverage: 17.6%
+Baseline Overgeneration: 100%
+Baseline Ambiguity: 51.33
+
+Updated Coverage: 17.6% 
+Updated Overgeneration: 100%
+Updated Ambiguity: 62.33
+
+############################################################
+# LANGUAGE AT A GLANCE
+############################################################
+
+Word Order: SOV and OSV for sentences with arguments in third person
+Coordination: Asyndetic
+Possession: distinguishes between alienable/inalienable
+Tenses: Future and non-future
+
+############################################################
+# TEST CORPUS
+############################################################
+
+We decided to go with the sentence below. In order to have the sentence parsing we needed to add OSV word order for when all the sentences’ arguments are in third person.
+
+Akũtʃu apaɾapia dow dow-a
+Akuntsú non.Indian shoot shoot-THV
+“Akuntsú, the non-Indian shot, they shot”
+
+To get OSV word order for sentences that have all their arguments in third person, we had to add a second subject head rule that says that the subject is third person and the COMPS list is non-empty and its first argument is third person.
+
+We did this by adding subj-head-2 := subj-head-phrase-2. to the rules.tdl file and also by adding the type below to akuntsu.tdl
+
+subj-head-phrase-2 := decl-head-subj-phrase & head-final &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd, 
+                                    COMPS.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PERNUM 3rd ] ].
+
+After the information was updated, the sentence was still not showing the correct semantics, because “dow” was listed as a intransitive verb in lexicon.tdl, when it should be listed as a transitive verb. That information was also corrected:
+
+dow := tr-verb-verb-lex &
+  [ STEM < "dow" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_shoot_v_rel" ].
+
+
+############################################################
+# Variable property mapping
+############################################################
+
+In the semi.vpm file we updated PNG.PRENUM so that the right hand side has PER NUM instead of PERNUM and also changed 1st, 2nd and 3rd to first, second, and third to match the semi.vpm file for English. 
+
+PNG.PERNUM : PER NUM
+  3Plural <> third pl
+  2Plural <> second pl
+  1Plural_excl <> first pl
+  1Plural_incl <> first pl
+  1Plural <> first pl
+  3Singular <> third sg
+  2Singular <> second sg
+  1Singular <> first sg
+  3rd <> third !
+  3rd <> third *
+  2nd <> second !
+  2nd <> second *
+  1st <> first !
+  1st <> first *
+  Plural <> ! pl
+  Plural <> * pl
+  Singular <> ! sg
+  Singular <> * sg
+  * >> ! !
+  ! << * *
+
+Also in semi.vpm, E. has been removed from the right hand side of TENSE, ASPECT AND MOOD.
+
+E.TENSE : TENSE
+  nonfuture <> nonfuture
+  future <> future
+
+E.ASPECT : ASPECT
+  Habitual <> Habitual
+  Iterative <> Iterative
+  Reduplication <> Reduplication
+  * >> no-aspect
+  no-aspect << [e]
+
+E.MOOD : MOOD
+  * <> *
+
+############################################################
+# MT
+############################################################
+
+We created a fake lexical entry for “dog” in lexicon.tdl. The original meaning of the word “tato” is “armadillo”
+
+tato := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "tato" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
+
+We also were able to reduce the number of translations by creating a default no-aspect for underspecified verbs in akuntsu.tdl
+
+no-aspect := aspect.
+
+“Dogs sleep” translates to “tato et” and “tato et-a”. There is still some ambiguity because of the thematic vowel. Below is the IGT for the sentences “tato et” and “tato et-a”:
+
+tato et
+dog sleep
+“Dogs sleep”
+
+tato et-a
+dog sleep
+“Dogs sleep”

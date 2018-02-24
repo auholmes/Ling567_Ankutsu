@@ -1,0 +1,214 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; Nouns
+
+kɨjtpit := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "kɨjtpit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_fish_n_rel" ].
+
+tawtʃe := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "tawtʃe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_peccary_n_rel" ].
+
+kɨp := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "kɨp" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wood_n_rel" ].
+
+kit := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "kit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_seed_n_rel" ].
+
+potʃek := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "potʃek" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+tato := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "tato" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
+
+peɾo := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "peɾo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_macaw_n_rel" ].
+
+okwaj := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "okwaj" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_tail_n_rel" ].
+
+jãj := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "jãj" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_tooth_n_rel" ].
+
+apaɾapia := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "apaɾapia" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_non_Indian_n_rel" ].
+
+nako := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "nako" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_man_n_rel" ].
+
+õjpe := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "õjpe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_tobacco_n_rel" ].
+
+Tʃaɾuj := pn-lxm-noun-lex &
+  [ STEM < "Tʃaɾuj" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Tʃaɾuj_n_rel" ].
+
+Kwatin := pn-lxm-noun-lex &
+  [ STEM < "Kwatin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Kwatin_n_rel" ].
+
+Babakop := pn-lxm-noun-lex &
+  [ STEM < "Babakop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Babakop_n_rel" ].
+
+Akũtʃu := pn-lxm-noun-lex &
+  [ STEM < "Akũtʃu" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_Akuntsu_n_rel" ].
+
+on := pron-lxm-1S-noun-lex &
+  [ STEM < "on" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+o := pron-lxm-1S-noun-lex &
+  [ STEM < "o" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+oɾẽ := pron-lxm-1S-noun-lex &
+  [ STEM < "oɾẽ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+en := pron-lxm-2S-noun-lex &
+  [ STEM < "en" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+e := pron-lxm-2S-noun-lex &
+  [ STEM < "e" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+te := pron-lxm-3S-noun-lex &
+  [ STEM < "te" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+kitʃe := pron-lxm-1PLI-noun-lex &
+  [ STEM < "kitʃe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+otʃe := pron-lxm-1PLE-noun-lex &
+  [ STEM < "otʃe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+iat := pron-lxm-2PL-noun-lex &
+  [ STEM < "iat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+kejat := pron-lxm-3PL-noun-lex &
+  [ STEM < "kejat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+
+po := continguous-n-lxm-noun-lex &
+  [ STEM < "po" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hand_n_rel" ].
+
+tojẽpit := continguous-n-lxm-noun-lex &
+  [ STEM < "tojẽpit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_granddaughter_n_rel" ].
+
+mepit := continguous-n-lxm-noun-lex &
+  [ STEM < "mepit" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_daughter_n_rel" ].
+
+ape := continguous-n-lxm-noun-lex &
+  [ STEM < "ape" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_path_n_rel" ].
+
+ike := continguous-n-lxm-noun-lex &
+  [ STEM < "ike" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_older_brother_n_rel" ].
+
+kojẽ := continguous-n-lxm-noun-lex &
+  [ STEM < "kojẽ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_brother_in_law_n_rel" ].
+
+;;; Adjectives
+
+niŋ := adj-lxm-adj-lex &
+  [ STEM < "niŋ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_striped_a_rel" ].
+
+peɾek := adj-lxm-adj-lex &
+  [ STEM < "peɾek" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_long_a_rel" ].
+
+tʃokin := adj-lxm-adj-lex &
+  [ STEM < "tʃokin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_small_a_rel" ].
+
+petkop := pred-adj-lex &
+  [ STEM < "petkop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_alone_a_rel" ].
+
+tʃokeee := adj-lxm-adj-lex &
+  [ STEM < "tʃokeee" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
+
+;;; Verbs
+
+ka := iv-lxm-verb-lex &
+  [ STEM < "ka" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
+
+et := iv-lxm-verb-lex &
+  [ STEM < "et" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
+
+atʃo := iv-lxm-verb-lex &
+  [ STEM < "atʃo" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bathe_v_rel" ].
+
+a := iv-lxm-verb-lex &
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_exist_v_rel" ].
+
+dow := tr-verb-verb-lex &
+  [ STEM < "dow" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_shoot_v_rel" ].
+
+ihĩ-ihĩ := iv-lxm-verb-lex &
+  [ STEM < "ihĩ-ihĩ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
+
+boja := tr-verb-verb-lex &
+  [ STEM < "boja" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+õ := tr-verb-verb-lex &
+  [ STEM < "õ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
+
+ko := tr-verb-verb-lex &
+  [ STEM < "ko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+
+tʃoga := tr-verb-verb-lex &
+  [ STEM < "tʃoga" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bite_v_rel" ].
+
+tʃop := tr-verb-verb-lex &
+  [ STEM < "tʃop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
+
+;;; Auxiliaries
+
+kom := tense-aux-lex &
+  [ STEM < "kom" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_FUTURE_v_rel" ].
+
+;;;WH-PRONOUNS
+
+taɾa := wh-pronoun-noun-lex &
+  [ STEM < "taɾa" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
+aɾop := wh-pronoun-noun-lex &
+  [ STEM < "aɾop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
