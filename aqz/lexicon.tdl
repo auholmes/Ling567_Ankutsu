@@ -201,6 +201,10 @@ tʃop := tr-verb-verb-lex &
   [ STEM < "tʃop" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see_v_rel" ].
 
+poka := tr-verb-verb-lex &
+  [ STEM < "poka" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
+
 ;;; Auxiliaries
 
 kom := tense-aux-lex &
