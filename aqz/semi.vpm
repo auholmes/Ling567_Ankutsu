@@ -73,5 +73,5 @@ E.ASPECT : ASPECT
   * >> no-aspect
   no-aspect << [e]
 
-E.MOOD : MOOD
-  * <> *
+;E.MOOD : MOOD
+;  * <> *
