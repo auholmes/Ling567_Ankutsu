@@ -3,6 +3,10 @@
 
 ameko := noncontiguous-n-lxm-noun-lex &
   [ STEM < "ameko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cat_n_rel" ].
+
+takɨrap := noncontiguous-n-lxm-noun-lex &
+  [ STEM < "takɨrap" >,
     SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
 
 kɨjtpit := noncontiguous-n-lxm-noun-lex &
@@ -71,43 +75,43 @@ Akũtʃu := pn-lxm-noun-lex &
 
 on := pron-lxm-1S-noun-lex &
   [ STEM < "on" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 o := pron-lxm-1S-noun-lex &
   [ STEM < "o" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 oɾẽ := pron-lxm-1S-noun-lex &
   [ STEM < "oɾẽ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 en := pron-lxm-2S-noun-lex &
   [ STEM < "en" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 e := pron-lxm-2S-noun-lex &
   [ STEM < "e" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 te := pron-lxm-3S-noun-lex &
   [ STEM < "te" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kitʃe := pron-lxm-1PLI-noun-lex &
   [ STEM < "kitʃe" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 otʃe := pron-lxm-1PLE-noun-lex &
   [ STEM < "otʃe" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 iat := pron-lxm-2PL-noun-lex &
   [ STEM < "iat" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 kejat := pron-lxm-3PL-noun-lex &
   [ STEM < "kejat" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 po := continguous-n-lxm-noun-lex &
   [ STEM < "po" >,
@@ -155,6 +159,10 @@ tʃokeee := adj-lxm-adj-lex &
   [ STEM < "tʃokeee" >,
     SYNSEM.LKEYS.KEYREL.PRED "_big_a_rel" ].
 
+tʃobe := adj-lxm-adj-lex &
+  [ STEM < "tʃobe" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hungry_a_rel" ].
+
 ;;; Verbs
 
 ka := iv-lxm-verb-lex &
@@ -181,6 +189,10 @@ ihĩ-ihĩ := iv-lxm-verb-lex &
   [ STEM < "ihĩ-ihĩ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
+ko := opt-trans-verb-lex & 
+  [ STEM < "ko" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+
 boja := tr-verb-verb-lex &
   [ STEM < "boja" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
@@ -189,9 +201,9 @@ boja := tr-verb-verb-lex &
   [ STEM < "õ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
-ko := tr-verb-verb-lex &
-  [ STEM < "ko" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+;ko := tr-verb-verb-lex &
+;  [ STEM < "ko" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
 tʃoga := tr-verb-verb-lex &
   [ STEM < "tʃoga" >,
