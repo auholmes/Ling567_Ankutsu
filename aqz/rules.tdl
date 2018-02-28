@@ -3,6 +3,8 @@ head-adj-int := head-adj-int-phrase.
 
 comp-head := comp-head-phrase.
 
+basic-head-opt-comp := basic-head-opt-comp-phrase.
+
 subj-head := subj-head-phrase.
 
 subj-head-2 := subj-head-phrase-2.

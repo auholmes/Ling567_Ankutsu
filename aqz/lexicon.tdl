@@ -189,7 +189,7 @@ ihĩ-ihĩ := iv-lxm-verb-lex &
   [ STEM < "ihĩ-ihĩ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
-ko := opt-trans-verb-lex & 
+ko := obj-drop-verb-lex & 
   [ STEM < "ko" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
