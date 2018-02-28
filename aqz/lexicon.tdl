@@ -77,20 +77,8 @@ on := pron-lxm-1S-noun-lex &
   [ STEM < "on" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
-o := pron-lxm-1S-noun-lex &
-  [ STEM < "o" >,
-    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
-
-oɾẽ := pron-lxm-1S-noun-lex &
-  [ STEM < "oɾẽ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
-
 en := pron-lxm-2S-noun-lex &
   [ STEM < "en" >,
-    SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
-
-e := pron-lxm-2S-noun-lex &
-  [ STEM < "e" >,
     SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 te := pron-lxm-3S-noun-lex &
