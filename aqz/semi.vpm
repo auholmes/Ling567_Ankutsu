@@ -65,6 +65,9 @@ PNG.PERNUM : PER NUM
 E.TENSE : TENSE
   nonfuture <> nonfuture
   future <> future
+  nonfuture << past
+  nonfuture << present
+  nonfuture << [e]
 
 E.ASPECT : ASPECT
   Habitual <> Habitual
