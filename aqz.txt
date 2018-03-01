@@ -1,4 +1,3 @@
-## english sentences
 tato et
 
 tato takɨrap poka
@@ -13,25 +12,14 @@ tato takɨrap poka-eɾom
 
 ameko tato takɨrap poka
 
-tato tʃobe ko
-
-aɾop et
-
-taɾa tato poka
-
-
-
-## pite saami sentences
-
-tato et
-takɨrap tato poka
-tato ko
-takɨrap tato poka
-takɨrap tato poka-eɾom
-takɨrap ameko tato poka
 tato takɨrap poka ameko tato poka
+
 ameko tato poka et
+
 ameko tato poka
+
 tato tʃobe ko
+
 aɾop et
+
 taɾa tato poka
