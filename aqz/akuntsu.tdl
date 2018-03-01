@@ -23,13 +23,15 @@ head :+ [ PRON bool,
     POSSESSOR poss,
     FORM form ].
 
-inflected :+ [ POSS1-FLAG luk,
+inflected :+ [ TENSE-FLAG luk,
+    POSS1-FLAG luk,
     POSS2-FLAG luk,
     ASPEC-OR-NEG1-OR-THEME-FLAG luk ].
 
 infl-satisfied :+ [ POSS1-FLAG na-or-+,
     POSS2-FLAG na-or-+,
-    ASPEC-OR-NEG1-OR-THEME-FLAG na-or-+ ].
+    ASPEC-OR-NEG1-OR-THEME-FLAG na-or-+,
+    TENSE-FLAG na-or-+ ].
 
 png :+ [ PERNUM pernum ].
 
@@ -204,7 +206,8 @@ main-verb-lex := verb-lex & basic-verb-lex & aspec-rule-dtr & neg1-or-theme-rule
                  [ LOCAL [ CAT cat-sat &
                                [ VAL [ SPR < >,
                                        COMPS < > ] ],
-                           CONT.HOOK.INDEX #xarg ] ] ].
+                           CONT.HOOK.INDEX #xarg ] ],
+    INFLECTED.TENSE-FLAG - ].
 
 aux-lex := verb-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.AUX + ].
@@ -227,13 +230,6 @@ iv-lxm-verb-lex := intransitive-verb-lex &
 
 tr-verb-verb-lex := transitive-verb-lex &
   [ INFLECTED.ASPEC-OR-NEG1-OR-THEME-FLAG - ].
-
-no-obj-drop-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
-
-obj-drop-verb-lex := transitive-verb-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT + ].
-
 
 ;;; Auxiliaries
 
@@ -297,6 +293,7 @@ attr-only-adj-lex := attr-adj-lex &
 
 aspec-rule-dtr := word-or-lexrule.
 neg1-or-theme-rule-dtr := word-or-lexrule.
+tense-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
@@ -402,10 +399,12 @@ nonposs2_rule-lex-rule := const-lex-rule & nonpossessive-lex-rule-2 & poss2-lex-
 
 neg1-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
   [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
+		TENSE-FLAG #tense,
                 POSS2-FLAG #poss2,
                 POSS1-FLAG #poss1 ],
     DTR neg1-or-theme-rule-dtr &
         [ INFLECTED [ POSS2-FLAG #poss2,
+		      TENSE-FLAG #tense,
                       POSS1-FLAG #poss1 ] ] ].
 
 ; This adds negative semantics to the verb's
@@ -429,12 +428,14 @@ neg1_rule-lex-rule := neg1-lex-rule-super &
                                      LTOP #larg ],
                          CAT.HEAD verb ] ] ].
 
-aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
+aspec-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & tense-rule-dtr &
   [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
+		TENSE-FLAG #tense,
                 POSS2-FLAG #poss2,
                 POSS1-FLAG #poss1 ],
     DTR aspec-rule-dtr &
         [ INFLECTED [ POSS2-FLAG #poss2,
+		      TENSE-FLAG #tense,
                       POSS1-FLAG #poss1 ] ] ].
 
 habitual-lex-rule := aspec-lex-rule-super &
@@ -451,17 +452,36 @@ caus-lex-rule-super := infl-lex-rule & val-change-with-ccont-lex-rule &
 caus_rule-lex-rule := caus-lex-rule-super & causative-to-arg2-itr-op-lex-rule & same-non-local-lex-rule &
   [ C-CONT.RELS <! [ PRED "causative_rel" ] !> ].
 
-theme-lex-rule-super := add-only-no-ccont-rule & aspec-rule-dtr &
+theme-lex-rule-super := add-only-no-ccont-rule & aspec-rule-dtr & tense-rule-dtr &
   [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG +,
+		TENSE-FLAG #tense,
                 POSS2-FLAG #poss2,
                 POSS1-FLAG #poss1 ],
     DTR neg1-or-theme-rule-dtr &
         [ INFLECTED [ POSS2-FLAG #poss2,
+		      TENSE-FLAG #tense,
                       POSS1-FLAG #poss1 ] ] ].
 
 thematic_vowel-lex-rule := infl-lex-rule & theme-lex-rule-super.
 
 non-thematic-lex-rule := const-lex-rule & theme-lex-rule-super.
+
+tense-lex-rule-super := add-only-no-ccont-rule & constant-lex-rule &
+  [ INFLECTED [ TENSE-FLAG +,
+		ASPEC-OR-NEG1-OR-THEME-FLAG #thm,
+                POSS2-FLAG #poss2,
+                POSS1-FLAG #poss1 ],
+    DTR tense-rule-dtr &
+        [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG #thm,
+		      POSS2-FLAG #poss2,
+                      POSS1-FLAG #poss1 ] ] ].
+
+nonfinite-verb-lex-rule := tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.HEAD.FORM nonfinite ].		      
+
+nonfuture-verb-lex-rule := tense-lex-rule-super &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE nonfuture,
+		   CAT.HEAD.FORM finite ] ].		      
 
 ;Constraint on MC used to be part of matrix.tdl
 ;;it applies to all wo implementations, except for v2
