@@ -231,6 +231,12 @@ iv-lxm-verb-lex := intransitive-verb-lex &
 tr-verb-verb-lex := transitive-verb-lex &
   [ INFLECTED.ASPEC-OR-NEG1-OR-THEME-FLAG - ].
 
+no-obj-drop-verb-lex := transitive-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
+
+obj-drop-verb-lex := transitive-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT + ].
+
 ;;; Auxiliaries
 
 s-comp-aux := aux-lex & basic-one-arg &
