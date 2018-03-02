@@ -1,0 +1,76 @@
+Lab 8 
+Akuntsu
+Audrey Holmes and Aycha Edwards
+
+Grammar Clean-Up:
+
+We had several pronouns in our grammar that differed only by emphasis or formality. We removed these to include only one pronoun for each PERNUM feature.
+
+We had tense underspecified for all nonfuture verbs, so we created the following lexical rules:
+
+tense-lex-rule-super := add-only-no-ccont-rule & constant-lex-rule &
+  [ INFLECTED [ TENSE-FLAG +,
+                ASPEC-OR-NEG1-OR-THEME-FLAG #thm,
+                POSS2-FLAG #poss2,
+                POSS1-FLAG #poss1 ],
+    DTR tense-rule-dtr &
+        [ INFLECTED [ ASPEC-OR-NEG1-OR-THEME-FLAG #thm,
+                      POSS2-FLAG #poss2,
+                      POSS1-FLAG #poss1 ] ] ].
+
+nonfinite-verb-lex-rule := tense-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.HEAD.FORM nonfinite ].
+
+nonfuture-verb-lex-rule := tense-lex-rule-super &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE nonfuture,
+                   CAT.HEAD.FORM finite ] ].
+
+When we tried to translate the sentence, "Dogs eat" into Akuntsu, we realized that the lexical entry for "ko" (eat) was a transitive verb. Thus, we implemented argument optionality to make it work as both a transitive and an intransitive verb.
+
+tato et
+dog sleep
+Dogs sleep
+
+We created the following lexical types:
+
+no-obj-drop-verb-lex := transitive-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT - ].
+
+obj-drop-verb-lex := transitive-verb-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.OPT + ].
+
+We also enabled the head optional comp rule.
+
+When we tried to translate the sentence "Dogs chase cars and cats chase dogs", we discovered that we were losing information in the MRS. 
+
+tato takɨrap poka   ameko tato poka
+dog  car     chase  cat   dog  chase
+Dogs chase cars and cats chase dogs
+
+Thus, we fixed the sentence coordination rules as follows:
+
+unary-bottom-coord-rule :+
+  [ C-CONT.HOOK.LTOP #ltop,
+    ARGS.FIRST.SYNSEM.LOCAL.CONT.HOOK.LTOP #ltop ].
+
+s1-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
+  [ SYNSEM.LOCAL [ CAT.HEAD.FORM #form,
+                   COORD-STRAT "1" ],
+    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.FORM #form,
+    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.FORM #form ].
+
+s1-bottom-coord-rule := unary-bottom-coord-rule & s-bottom-coord-phrase &
+  [ SYNSEM.LOCAL [ CAT.HEAD.FORM #form,
+                   COORD-STRAT "1",
+                   COORD-REL.PRED "_and_coord_rel" ],
+    ARGS < [ SYNSEM.LOCAL.CAT.HEAD.FORM #form ] > ].
+
+We did not implement any transfer rules.
+
+There are several reasons why we are getting multiple translations for sentences:
+
+ - Asyndetic Coordination
+ - We have two subj-head rules to account for SOV and OVS word order.
+ - Thematic Vowel
+
+
