@@ -205,6 +205,10 @@ poka := tr-verb-verb-lex &
   [ STEM < "poka" >,
     SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
     
+boɾote := prop-comp-verb-lex &
+	[ STEM < "boɾote" >,
+	  SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
+    
 ;;; Auxiliaries
 
 kom := tense-aux-lex &

@@ -612,18 +612,9 @@ vp1-bottom-coord-rule := unary-bottom-coord-rule & vp-bottom-coord-phrase &
 
 ;;; Coordination Strategy 1
 
-unary-bottom-coord-rule :+
-  [ C-CONT.HOOK.LTOP #ltop,
-    ARGS.FIRST.SYNSEM.LOCAL.CONT.HOOK.LTOP #ltop ].
-
 s1-top-coord-rule := basic-s-top-coord-rule & apoly-top-coord-rule &
-  [ SYNSEM.LOCAL [ CAT.HEAD.FORM #form,
-		   COORD-STRAT "1" ],
-    LCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.FORM #form,
-    RCOORD-DTR.SYNSEM.LOCAL.CAT.HEAD.FORM #form ].
+  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
 s1-bottom-coord-rule := unary-bottom-coord-rule & s-bottom-coord-phrase &
-  [ SYNSEM.LOCAL [ CAT.HEAD.FORM #form, 
-		   COORD-STRAT "1",
-                   COORD-REL.PRED "_and_coord_rel" ],
-    ARGS < [ SYNSEM.LOCAL.CAT.HEAD.FORM #form ] > ].
+  [ SYNSEM.LOCAL [ COORD-STRAT "1",
+                   COORD-REL.PRED "_and_coord_rel" ] ].

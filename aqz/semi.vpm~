@@ -13,7 +13,7 @@ SPECI : SPECI
 
 SF : SF
   prop <> prop
-  prop-or-ques << ques
+  ques <> ques
   prop-or-ques >> prop-or-ques
   prop << prop-or-ques
   comm <> comm
