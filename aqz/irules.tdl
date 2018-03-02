@@ -24,7 +24,3 @@ Iterative-lex-rule.
 caus_rule-prefix :=
 %prefix (* mõ-)
 caus_rule-lex-rule.
-
-thematic_vowel-suffix :=
-%suffix (* -a)
-thematic_vowel-lex-rule.
