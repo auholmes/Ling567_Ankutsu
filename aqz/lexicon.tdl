@@ -157,8 +157,8 @@ ka := iv-lxm-verb-lex &
   [ STEM < "ka" >,
     SYNSEM.LKEYS.KEYREL.PRED "_go_v_rel" ].
 
-et := iv-lxm-verb-lex &
-  [ STEM < "et" >,
+et-a := iv-lxm-verb-lex &
+  [ STEM < "et-a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 atʃo := iv-lxm-verb-lex &
@@ -177,20 +177,20 @@ ihĩ-ihĩ := iv-lxm-verb-lex &
   [ STEM < "ihĩ-ihĩ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cry_v_rel" ].
 
-ko := obj-drop-verb-lex & 
-  [ STEM < "ko" >,
+ko-a := obj-drop-verb-lex & 
+  [ STEM < "ko-a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
 boja := tr-verb-verb-lex &
   [ STEM < "boja" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
-õ := tr-verb-verb-lex &
-  [ STEM < "õ" >,
+õ-a := tr-verb-verb-lex &
+  [ STEM < "õ-a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
-;ko := tr-verb-verb-lex &
-;  [ STEM < "ko" >,
+;ko-a := tr-verb-verb-lex &
+;  [ STEM < "ko-a" >,
 ;    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
 tʃoga := tr-verb-verb-lex &
