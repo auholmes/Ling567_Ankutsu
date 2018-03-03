@@ -6,6 +6,26 @@ Grammar Clean-Up:
 
 We had several pronouns in our grammar that differed only by emphasis or formality. We removed these to include only one pronoun for each PERNUM feature.
 
+We had prop-or-ques for all of our sentences. We had to modify semi.vpm to handle input questions:
+
+SF : SF
+  prop <> prop
+  prop-or-ques << ques
+  prop-or-ques >> prop-or-ques
+  prop << prop-or-ques
+  comm <> comm
+  * <> *
+
+We modified semi.vpm to handle tense as well.
+
+E.TENSE : TENSE
+  nonfuture <> nonfuture
+  future <> future
+  nonfuture << past
+  nonfuture << present
+  nonfuture << [e]
+
+
 We had tense underspecified for all nonfuture verbs, so we created the following lexical rules:
 
 tense-lex-rule-super := add-only-no-ccont-rule & constant-lex-rule &
@@ -27,9 +47,9 @@ nonfuture-verb-lex-rule := tense-lex-rule-super &
 
 When we tried to translate the sentence, "Dogs eat" into Akuntsu, we realized that the lexical entry for "ko" (eat) was a transitive verb. Thus, we implemented argument optionality to make it work as both a transitive and an intransitive verb.
 
-tato et
-dog sleep
-Dogs sleep
+tato ko
+dog eat
+Dogs eat
 
 We created the following lexical types:
 
@@ -73,4 +93,48 @@ There are several reasons why we are getting multiple translations for sentences
  - We have two subj-head rules to account for SOV and OVS word order.
  - Thematic Vowel
 
+Additionally, the following sentences do not have translations:
 
+I think that you know that dogs chase cars
+I ask whether you know that dogs chase cars
+Dogs eat quickly
+What do you think the dogs chase
+Who asked what the dogs chase
+I asked what the dogs chased
+The dog sleeps because the cat sleeps
+The dog sleeps after the cat sleeps
+
+The source we were working from did not provide enough information to model these phenomena.
+
+The following three sentences are not translating (but they were yesterday). It looks like the PERNUM information is not being passed correctly in the MRS, but we ran out of time to finish debugging.
+
+Dogs eat
+The dogs dont chase cars
+Hungry dogs eat
+
+The following sentences did not translate since there was a bug with possessives.
+
+The dog s car sleeps
+My dogs sleep
+
+The following sentence does not parse with the Pite Saami grammar (and thus does not translate into Akuntsu).
+Maon haosaoklav duv
+
+The following sentences do not translate:
+Bednaga eh haoskaolao bijlajd
+Bednaga haoskaoli bijlajd ja gaahto haoskaoli bednagajd
+Gaahto haoskaoli bednagajd ja urri
+Bednaga bijjla aorraa
+Muv bednaga urri
+
+The final two sentences have the same problem with possessives we had in English.
+
+Baseline Coverage: 86.4%
+Baseline Overgeneration: 10.3%
+Baseline Ambiguity: 5.67
+
+Updated Coverage: 86.4%
+Updated Overgeneration: 24.1%
+Updated Ambiguity: 7.47%
+
+We created some overgeneration by allowing "ko" (eat) to act as both transitive and intransitive. We had (incorrectly) created ungrammatical examples with "ko" as an intransitive verb.

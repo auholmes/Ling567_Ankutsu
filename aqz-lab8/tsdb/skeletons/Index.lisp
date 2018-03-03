@@ -24,6 +24,7 @@
 ((:path . "lab6") (:content . "lab6 testsuite"))
 ((:path . "test_corpus") (:content . "test corpus"))
 ((:path . "lab7") (:content . "lab7 testsuite"))
+((:path . "lab8") (:content . "lab8 testsuite"))
 ; New test suites here. For example:
 ; ((:path . "new-test-suite") (:content . "New Test Suite: A description of the new test suite located at the subdirectory new-test-suite."))
 )

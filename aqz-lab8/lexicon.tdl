@@ -189,10 +189,6 @@ boja := tr-verb-verb-lex &
   [ STEM < "õ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
-;ko := tr-verb-verb-lex &
-;  [ STEM < "ko" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
-
 tʃoga := tr-verb-verb-lex &
   [ STEM < "tʃoga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bite_v_rel" ].
